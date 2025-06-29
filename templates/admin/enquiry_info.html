@@ -114,10 +114,16 @@
 
           <form method="POST">
             {% csrf_token %}
-            <button type="submit">Delete Entry</button>
+            <button type="submit" onclick="deleteEnquiry()"><a id="delete-enquiry-btn">Delete Entry</a></button>
           </form>
         </div>
       </div>
     </div>
+    <script>
+      function deleteEnquiry() {
+        let enquiryBtn = document.getElementById('delete-enquiry-btn');
+        enquiryBtn.innerText = "Deleting...";
+      }
+    </script>
   </body>
 </html>

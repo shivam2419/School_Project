@@ -1,7 +1,7 @@
-{% extends "base.html" %} {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
+{% extends "base.html" %}
+{% load static %}
+
+ <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     {% block css %}{% static 'gallery.css' %}{% endblock css %}
@@ -10,185 +10,148 @@
 
     </style>
   </head>
-  <body>
-    {% block body %}
-    <center><h2>Our Campus Gallery</h2></center>
-    <div class="first">
-      <div class="left">
-        <h2>Inaugration</h2>
-        <div class="main">
-          {% for img in inaug %}
-          <img src="/media/{{img.inaugration}}" alt="" class="slide" />
-          {% endfor %}
-        </div>
-        <div class="butt">
-          <button onclick="goPrev();">&larr;</button>
-          <button onclick="goNext();">&rarr;</button>
-        </div>
-      </div>
+{% block body %}
+<center><h2>Our Campus Gallery</h2></center>
 
-      <div class="right">
-        <h2>Assembly</h2>
-        <div class="main">
-          {% for img in assem %}
-          <img src="/media/{{img.assembly}}" alt="" class="slide1" />
-          {% endfor %}
-        </div>
-        <div class="butt">
-          <button onclick="goPrev1();">&larr;</button>
-          <button onclick="goNext1();">&rarr;</button>
-        </div>
-      </div>
+<div class="first">
+  <div class="left">
+    <h2>Events</h2>
+    <div class="main">
+      {% for img in inaug %}
+      <img src="/media/{{ img.inaugration }}" alt="" class="slide" />
+      {% endfor %}
     </div>
-
-    <div class="second">
-      <div class="left">
-        <h2>Functions</h2>
-        <div class="main">
-          {% for img in func %}
-          <img src="/media/{{img.function}}" alt="" class="slide2" />
-          {% endfor %}
-        </div>
-        <div class="butt">
-          <button onclick="goPrev2();">&larr;</button>
-          <button onclick="goNext2();">&rarr;</button>
-        </div>
-      </div>
-      <div class="right">
-        <h2>PT</h2>
-        <div class="main">
-          {% for img in pt %}
-          <img src="/media/{{img.PT}}" alt="" class="slide3" />
-          {% endfor %}
-        </div>
-        <div class="butt">
-          <button onclick="goPrev3();">&larr;</button>
-          <button onclick="goNext3();">&rarr;</button>
-        </div>
-      </div>
+    <div class="butt">
+      <button onclick="goPrev();">&larr;</button>
+      <button onclick="goNext();">&rarr;</button>
     </div>
-    <script>
-      // Slides Section
-      //Slide 0 section
-      const slides = document.querySelectorAll(".slide");
-      var counter = 0;
-      slides.forEach((slide, index) => {
-        slide.style.left = `${index * 100}%`;
-      });
-      inaug={{inaug|length}};
-      const goNext = () => {
-        counter++;
-       if(counter+1>inaug)
-        {
-          counter=0;
-        }
-        slideImage();
-      };
-      const goPrev = () => {
-        counter--;
-        if (counter < 0) {
-          counter = inaug-1;
-        }
-        slideImage();
-      };
-      const slideImage = () => {
-        slides.forEach((slide) => {
-          slide.style.transform = `translateX(-${counter * 100}%)`;
-        });
-      };
+  </div>
 
-      //Slide 1 section
+  <div class="right">
+    <h2>Assembly</h2>
+    <div class="main">
+      {% for img in assem %}
+      <img src="/media/{{ img.assembly }}" alt="" class="slide1" />
+      {% endfor %}
+    </div>
+    <div class="butt">
+      <button onclick="goPrev1();">&larr;</button>
+      <button onclick="goNext1();">&rarr;</button>
+    </div>
+  </div>
+</div>
 
-      const slides1 = document.querySelectorAll(".slide1");
-      var counter1 = 0;
-      assem={{assem|length}};
-      console.log(assem);
-      slides1.forEach((slide, index) => {
-        slide.style.left = `${index * 100}%`;
-      });
-      const goNext1 = () => {
-        counter1++;
-        if(counter1+1>assem)
-        {
-          counter1=0;
-        }
-        slideImage1();
-      };
-      const goPrev1 = () => {
-        counter1--;
-        if (counter1 < 0) {
-          counter1 = assem-1;
-        }
-        slideImage1();
-      };
-      const slideImage1 = () => {
-        slides1.forEach((slide) => {
-          slide.style.transform = `translateX(-${counter1 * 100}%)`;
-        });
-      };
+<div class="second">
+  <div class="left">
+    <h2>Functions</h2>
+    <div class="main">
+      {% for img in func %}
+      <img src="/media/{{ img.function }}" alt="" class="slide2" />
+      {% endfor %}
+    </div>
+    <div class="butt">
+      <button onclick="goPrev2();">&larr;</button>
+      <button onclick="goNext2();">&rarr;</button>
+    </div>
+  </div>
 
-      //Slide 2 section
+  <div class="right">
+    <h2>Infrastructure</h2>
+    <div class="main">
+      {% for img in pt %}
+      <img src="/media/{{ img.PT }}" alt="" class="slide3" />
+      {% endfor %}
+    </div>
+    <div class="butt">
+      <button onclick="goPrev3();">&larr;</button>
+      <button onclick="goNext3();">&rarr;</button>
+    </div>
+  </div>
+</div>
 
-      const slides2 = document.querySelectorAll(".slide2");
-      var counter2 = 0;
-      slides2.forEach((slide, index) => {
-        slide.style.left = `${index * 100}%`;
-      });
-      const goNext2 = () => {
-        counter2++;
-        if (counter2 < 0) {
-          counter2 = 3;
-        } else if (counter2 > 3) {
-          counter2 = 0;
-        }
-        slideImage2();
-      };
-      const goPrev2 = () => {
-        counter2--;
-        if (counter2 < 0) {
-          counter2 = 3;
-        } else if (counter2 > 3) {
-          counter2 = 0;
-        }
-        slideImage2();
-      };
-      const slideImage2 = () => {
-        slides2.forEach((slide) => {
-          slide.style.transform = `translateX(-${counter2 * 100}%)`;
-        });
-      };
+<script>
+  // Slide 0: Events
+  const slides = document.querySelectorAll(".slide");
+  let counter = 0;
+  const inaug = {{ inaug|length }};
+  slides.forEach((slide, index) => {
+    slide.style.left = `${index * 100}%`;
+  });
+  function goNext() {
+    counter = (counter + 1) % inaug;
+    slideImage();
+  }
+  function goPrev() {
+    counter = (counter - 1 + inaug) % inaug;
+    slideImage();
+  }
+  function slideImage() {
+    slides.forEach((slide) => {
+      slide.style.transform = `translateX(-${counter * 100}%)`;
+    });
+  }
 
-      //Slide 2 section
+  // Slide 1: Assembly
+  const slides1 = document.querySelectorAll(".slide1");
+  let counter1 = 0;
+  const assem = {{ assem|length }};
+  slides1.forEach((slide, index) => {
+    slide.style.left = `${index * 100}%`;
+  });
+  function goNext1() {
+    counter1 = (counter1 + 1) % assem;
+    slideImage1();
+  }
+  function goPrev1() {
+    counter1 = (counter1 - 1 + assem) % assem;
+    slideImage1();
+  }
+  function slideImage1() {
+    slides1.forEach((slide) => {
+      slide.style.transform = `translateX(-${counter1 * 100}%)`;
+    });
+  }
 
-      const slides3 = document.querySelectorAll(".slide3");
-      var counter3 = 0;
-      slides3.forEach((slide, index) => {
-        slide.style.left = `${index * 100}%`;
-      });
-      const goNext3 = () => {
-        counter3++;
-        if (counter3 < 0) {
-          counter3 = 3;
-        } else if (counter3 > 3) {
-          counter3 = 0;
-        }
-        slideImage3();
-      };
-      const goPrev3 = () => {
-        counter3--;
-        if (counter3 < 0) {
-          counter3 = 3;
-        } else if (counter3 > 3) {
-          counter3 = 0;
-        }
-        slideImage3();
-      };
-      const slideImage3 = () => {
-        slides3.forEach((slide) => {
-          slide.style.transform = `translateX(-${counter3 * 100}%)`;
-        });
-      };
-    </script>
-    {% endblock body %}
-  </body>
-</html>
+  // Slide 2: Functions
+  const slides2 = document.querySelectorAll(".slide2");
+  let counter2 = 0;
+  const func = {{ func|length }};
+  slides2.forEach((slide, index) => {
+    slide.style.left = `${index * 100}%`;
+  });
+  function goNext2() {
+    counter2 = (counter2 + 1) % func;
+    slideImage2();
+  }
+  function goPrev2() {
+    counter2 = (counter2 - 1 + func) % func;
+    slideImage2();
+  }
+  function slideImage2() {
+    slides2.forEach((slide) => {
+      slide.style.transform = `translateX(-${counter2 * 100}%)`;
+    });
+  }
+
+  // Slide 3: Infrastructure
+  const slides3 = document.querySelectorAll(".slide3");
+  let counter3 = 0;
+  const pt = {{ pt|length }};
+  slides3.forEach((slide, index) => {
+    slide.style.left = `${index * 100}%`;
+  });
+  function goNext3() {
+    counter3 = (counter3 + 1) % pt;
+    slideImage3();
+  }
+  function goPrev3() {
+    counter3 = (counter3 - 1 + pt) % pt;
+    slideImage3();
+  }
+  function slideImage3() {
+    slides3.forEach((slide) => {
+      slide.style.transform = `translateX(-${counter3 * 100}%)`;
+    });
+  }
+</script>
+{% endblock body %}

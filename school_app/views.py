@@ -9,6 +9,7 @@ from rest_framework.decorators import api_view
 from .serializers import *
 import requests
 from decouple import config
+from time import sleep
 BREVO_API_KEY = config('BREVO_API_KEY')
 
 def robots_txt(request):

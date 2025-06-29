@@ -1,57 +1,81 @@
-.container .logo{
+.container .logo {
     text-align: center;
     margin-bottom: 4%;
 }
-.container .logo img{
+
+.container .logo img {
     height: 150px;
 }
-.container .card-1{
+
+.container .card-1 {
     display: flex;
     justify-content: space-around;
     text-align: center;
     margin-top: 4%;
+    gap: 20px;
+    flex-wrap: wrap; /* Ensures proper wrapping on smaller screens */
 }
-.container .card-1 img{
+
+.container .card-1 img {
     height: 200px;
     width: 100%;
+    object-fit: cover; /* Keeps image proportionate */
 }
-.container .card-1 h1{
+
+.container .card-1 h1 {
     font-family: 'Lato', sans-serif;
 }
-.container .card-1 p{
+
+.container .card-1 p {
     font-family: 'Roboto', sans-serif;
     margin-bottom: 20px;
 }
-.container .card-1 a{
+
+.container .card-1 a {
     text-decoration: none;
     color: white;
     background-color: purple;
-    padding: 10px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: inline-block;
+    transition: background-color 0.3s;
 }
-.container .card-1 .left, .container .card-1 .right{
+
+.container .card-1 a:hover {
+    background-color: darkmagenta;
+}
+
+.container .card-1 .left,
+.container .card-1 .right {
     width: 400px;
     border-radius: 20px;
-    box-shadow: 2px 2px 20px rgb(128, 128, 128);
-    padding-bottom: 2%;
+    box-shadow: 2px 2px 20px rgba(128, 128, 128, 0.5);
+    padding: 2%;
+    background-color: #fff; /* Optional: makes cards stand out */
 }
+
+/* Responsive for tablets and below */
 @media only screen and (max-width: 850px) {
-    .container .card-1 .left, .container .card-1 .right{
-        width: 350px;
-        margin: 4%;
-        padding-bottom: 5%;
+    .container .card-1 .left,
+    .container .card-1 .right {
+        width: 90%;
     }
 }
+
+/* Responsive for mobile screens */
 @media only screen and (max-width: 600px) {
-    body{
+    body {
         margin: 0;
         padding: 0;
     }
-    .container .card-1{
-        display: inline-block;
+
+    .container .card-1 {
+        display: block;
     }
-    .container .card-1 .left, .container .card-1 .right{
-        width: auto;
-        margin: 4%;
-        padding-bottom: 5%;
+
+    .container .card-1 .left,
+    .container .card-1 .right {
+        width: 95%;
+        margin: 2% auto;
     }
 }
