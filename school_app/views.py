@@ -56,7 +56,7 @@ def index(request):
         }
 
         data_user = {
-            "sender": {"name": "Aryabhatta Public School", "email": "csdslt2309@glbitm.ac.in"},
+            "sender": {"name": "Aryabhatt Public School", "email": "csdslt2309@glbitm.ac.in"},
             "to": [{"email": email, "name": fname}],
             "subject": "Contact Form Submitted",
             "htmlContent": f"""
@@ -149,14 +149,15 @@ def register(request):
 
         # --- Send Email Confirmation using Brevo ---
         url = "https://api.brevo.com/v3/smtp/email"
+        
         headers = {
             "accept": "application/json",
             "api-key": BREVO_API_KEY,
             "content-type": "application/json"
         }
-
+        # Sending acknowledgement to user
         data_user = {
-            "sender": {"name": "Aryabhatta Public School", "email": "csdslt2309@glbitm.ac.in"},
+            "sender": {"name": "Aryabhatt Public School", "email": "csdslt2309@glbitm.ac.in"},
             "to": [{"email": email, "name": sname}],
             "subject": "Admission Form Submitted",
             "htmlContent": f"""
@@ -195,7 +196,77 @@ def register(request):
         }
 
         requests.post(url, json=data_user, headers=headers)
+        
+        # Sending data to owner
+        data_user = {
+            "sender": {
+                "name": "Aryabhatt Public School",
+                "email": "csdslt2309@glbitm.ac.in"
+            },
+            "to": [
+                {
+                    "email": "aryabhattapublicedu@gmail.com",
+                    "name": "Aryabhatt Public School"
+                }
+            ],
+            "subject": "New Admission Form Received",
+            "htmlContent": f"""
+                <html>
+                <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+                    <h2 style="color: #2c3e50;">New Admission Form Submitted</h2>
+                    <p>Hello Admin,</p>
 
+                    <p>A new admission form has been submitted through the website. Below are the details:</p>
+
+                    <h3>Student Details:</h3>
+                    <ul>
+                        <li><strong>Student Name:</strong> {sname}</li>
+                        <li><strong>Father's Name:</strong> {fname}</li>
+                        <li><strong>Mother's Name:</strong> {mname}</li>
+                        <li><strong>Date of Birth:</strong> {Dob}</li>
+                        <li><strong>Phone Number:</strong> {pnum}</li>
+                        <li><strong>Email ID:</strong> {email}</li>
+                        <li><strong>Gender:</strong> {gender}</li>
+                        <li><strong>Class Applied For:</strong> {applied_for}</li>
+                        <li><strong>Previous School:</strong> {last_school}</li>
+                        <li><strong>Address:</strong> {address}</li>
+                        <li><strong>Transport Required:</strong> {trans_require}</li>
+                    </ul>
+
+                    <p>Please check the admin dashboard for full details and next steps.</p>
+
+                    <p>Best regards,<br>
+                    <strong>Website Notification System</strong><br>
+                    Aryabhatt Public School</p>
+                </body>
+                </html>
+            """,
+            "textContent": f"""
+        Hello Admin,
+
+        A new admission form has been submitted through the website.
+
+        Student Name: {sname}
+        Father's Name: {fname}
+        Mother's Name: {mname}
+        Date of Birth: {Dob}
+        Phone Number: {pnum}
+        Email ID: {email}
+        Gender: {gender}
+        Class Applied For: {applied_for}
+        Previous School: {last_school}
+        Address: {address}
+        Transport Required: {trans_require}
+
+        Please check the admin dashboard for full details.
+
+        Best regards,
+        Website Notification System
+        Aryabhatt Public School
+            """
+        }
+
+        requests.post(url, json=data_user, headers=headers)
         return render(request, 'admission.html', {"message": "Registration successful. Confirmation email sent."})
 
     return render(request, 'admission.html')
