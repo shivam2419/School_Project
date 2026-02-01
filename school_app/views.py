@@ -278,6 +278,8 @@ def EventInfo(request):
     }
     return render(request, 'eventinfo.html', context)
 
+def MandatoryDisclosure(request):
+    return render(request,('mandatory-disclosure.html'),session_context)
 
 # Login/Logout system
 def Login(request):

@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+<head>
+  {% block css %}static/service.css{% endblock css %}
+  <title>{% block title %}Mandatory Disclosure{% endblock title %}</title>
+</head>
+
+<body>
+{% block body %}
+
+<center>
+  <div class="head">
+    <span id="one">Mandatory</span>
+    &nbsp;
+    <span id="two">Disclosure</span>
+  </div>
+</center>
+
+<div class="main">
+
+  <div class="card-1">
+    <h2 class="doc-title">📄 Recognition Certificate</h2>
+    <p>Government issued recognition certificate of the school.</p>
+    <button>
+      <a href="{% static 'recognition_certificate.pdf' %}" target="_blank">View</a>
+    </button>
+  </div>
+
+  <div class="card-1">
+    <h2 class="doc-title">📄 Fire Safety Certificate</h2>
+    <p>Fire safety compliance certificate issued by competent authority.</p>
+    <button>
+      <a href="{% static 'fire_safety.pdf' %}" target="_blank">View</a>
+    </button>
+  </div>
+
+  <div class="card-1">
+    <h2 class="doc-title">📄 Water Safety Certificate</h2>
+    <p>Certificate confirming safe drinking water facilities.</p>
+    <button>
+      <a href="{% static 'water_safety.pdf' %}" target="_blank">View</a>
+    </button>
+  </div>
+
+</div>
+
+<div class="main">
+
+  <div class="card-1">
+    <h2 class="doc-title">📄 Building Safety Certificate</h2>
+    <p>Structural safety certificate of the school building.</p>
+    <button>
+      <a href="{% static 'building_safety.pdf' %}" target="_blank">View</a>
+    </button>
+  </div>
+
+  <div class="card-1">
+    <h2 class="doc-title">📄 UDISE</h2>
+    <p>Unified District Information System for Education details.</p>
+    <button>
+      <a href="{% static 'udise.pdf' %}" target="_blank">View</a>
+    </button>
+  </div>
+
+  <div class="card-1">
+    <h2 class="doc-title">📄 POSCO Committee</h2>
+    <p>Committee details as per POSCO Act guidelines.</p>
+    <button>
+      <a href="{% static 'posco_committee.pdf' %}" target="_blank">View</a>
+    </button>
+  </div>
+
+</div>
+
+<div class="main">
+
+  <div class="card-1">
+    <h2 class="doc-title">📄 Sexual Harassment Committee</h2>
+    <p>Internal committee details for prevention of harassment.</p>
+    <button>
+      <a href="{% static 'sexual_harassment.pdf' %}" target="_blank">View</a>
+    </button>
+  </div>
+
+  <div class="card-1">
+    <h2 class="doc-title">📄 Fee Structure</h2>
+    <p>Approved fee structure for all classes.</p>
+    <button>
+      <a href="{% static 'fee_structure.pdf' %}" target="_blank">View</a>
+    </button>
+  </div>
+
+  <div class="card-1">
+    <h2 class="doc-title">📄 Holiday List</h2>
+    <p>List of holidays for the current academic session.</p>
+    <button>
+      <a href="{% static 'holiday_list.pdf' %}" target="_blank">View</a>
+    </button>
+  </div>
+
+</div>
+
+<div class="main">
+
+  <div class="card-1">
+    <h2 class="doc-title">📄 Co-curricular Activities</h2>
+    <p>Details of co-curricular and other student activities.</p>
+    <button>
+      <a href="{% static 'co_curricular.pdf' %}" target="_blank">View</a>
+    </button>
+  </div>
+
+  <div class="card-1">
+    <h2 class="doc-title">📄 Academic Calendar</h2>
+    <p>Academic calendar with exams, events and holidays.</p>
+    <button>
+      <a href="{% static 'academic_calendar.pdf' %}" target="_blank">View</a>
+    </button>
+  </div>
+
+  <div class="card-1">
+    <h2 class="doc-title">📄 School Management Committee (SMC)</h2>
+    <p>Details of School Management Committee members.</p>
+    <button>
+      <a href="{% static 'smc.pdf' %}" target="_blank">View</a>
+    </button>
+  </div>
+
+</div>
+
+{% endblock body %}
+</body>
+</html>

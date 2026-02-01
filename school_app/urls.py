@@ -15,6 +15,7 @@ urlpatterns = [
     path("events",views.EventInfo, name='EventInfo'),
     path("service",views.service, name='service'),
     path("Gallery",views.gallery, name="Gallery"),
+    path("mandatory-disclosure",views.MandatoryDisclosure, name="Mandatory-disclosure"),
     # Login/Logout section
     path("login",views.Login, name="login"),
     path("logout",views.Logout, name="logout"),
