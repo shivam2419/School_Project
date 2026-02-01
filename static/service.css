@@ -1,72 +1,73 @@
-.head{
-    margin: 2%;
+.head {
+  margin: 2%;
 }
-.head span{
-    font-size: 36px;
-    font-family: 'Lato', sans-serif;
+.head span {
+  font-size: 36px;
+  font-family: "Lato", sans-serif;
 }
-#one{
-    color: rgb(0, 59, 153);
+#one {
+  color: rgb(0, 59, 153);
 }
-.main{
-    margin-top: 2%;
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
+.main {
+  margin-top: 2%;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
 }
-.card-1{
-    width: 300px;
-    background-color: white;
-    box-shadow: 1px 1px 10px 1px rgb(92, 92, 92);
+.card-1 {
+  padding: 10px;
+  width: 300px;
+  background-color: white;
+  box-shadow: 1px 1px 10px 1px rgb(92, 92, 92);
 }
-.card-1 img{
-    width:100%;
-    height: 200px;
-     display: flex;
+.card-1 img {
+  width: 100%;
+  height: 200px;
+  display: flex;
   flex-direction: column;
 }
-.card-1 h2{
-    margin: 10px;
+.card-1 h2 {
+  margin: 10px;
 }
-.card-1 p{
-    font-size: 16px;
-    margin: 10px;
-    font-family: 'Roboto', sans-serif;
+.card-1 p {
+  font-size: 16px;
+  margin: 10px;
+  font-family: "Roboto", sans-serif;
 }
-.card-1 button{
-    background-color: rgb(0, 41, 117);
-    width: fit-content;
-    padding: 8px;
-    margin: 10px;
-    margin-top: auto;          /* pushes button to bottom */
-  align-self: flex-start; 
+.card-1 button {
+  background-color: rgb(0, 41, 117);
+  width: fit-content;
+  padding: 8px;
+  margin: 10px;
+  margin-top: auto; /* pushes button to bottom */
+  align-self: flex-start;
 }
-.card-1 button a{
-    text-decoration: none;
-    color: white;
-    font-size: 16px;
+.card-1 button a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
 }
 @media only screen and (max-width: 910px) {
-    .main{
-        display: inline-block;
-        width: 100%;
-        align-items: center;
-        padding: 5%;
-    }
-    .card-1{
-        margin: auto;   
-        width: 85%;
-        margin-bottom: 5%;
-    }
- }
+  .main {
+    display: inline-block;
+    width: 100%;
+    align-items: center;
+    padding: 5%;
+  }
+  .card-1 {
+    margin: auto;
+    width: 85%;
+    margin-bottom: 5%;
+  }
+}
 @media only screen and (max-width: 500px) {
-    .main{
-        display: inline-block;
-        justify-content: center;
-    }
-    .card-1{
-        margin: auto;
-        width: 100%;
-        margin-bottom: 5%;
-    }
- }
+  .main {
+    display: inline-block;
+    justify-content: center;
+  }
+  .card-1 {
+    margin: auto;
+    width: 100%;
+    margin-bottom: 5%;
+  }
+}
