@@ -1,49 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "admin/adminbase.html" %}
+{% load static %}
+{% block title %}| Delete Event{% endblock title %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        body{
-            text-align: center;
-        }
-        img{
-            border-radius: 50%;
-            animation: myanimation 2s linear infinite;
-        }
-        @keyframes myanimation {
-           
-    from { transform: translate3d(0, 0, 0);} 
-    to { transform: translate3d(0, 10px, 10px);} 
-        }
-        input{
-            background-color: red;
-            height: 150px;
-            width: 150px;
-            border-radius: 50%;
-            border: none;
-            box-shadow: 1px 2px 10px 2px black;
-            color: white;
-            font-size: 24px;
-            font-weight: bold;
-            font-family: Arial, Helvetica, sans-serif
-        }
-        input:hover{
-            scale: 1.1;
-            opacity: 80%;
-        }
-    </style>
-</head>
-
-<body>
-    <form action="" method="POST">
-        {% csrf_token %}
-        <img src="https://t3.ftcdn.net/jpg/01/93/90/82/360_F_193908219_ak4aB1PzlhizUVGLOVowzHICc3tl6WeX.jpg" alt="">
-        <h1>Are you sure you wanna delete event :- {{data.event}}</h1>
-        <input type="submit" value="Delete !!">
-    </form>
-</body>
-
-</html>
+{% block body %}
+<form action="" method="POST" class="panel confirm">
+  {% csrf_token %}
+  <div class="warn"><i class="fa-solid fa-triangle-exclamation"></i></div>
+  <h1>Are you sure you wanna delete event :-</h1>
+  <p class="subject">{{data.event}}</p>
+  <div class="actions">
+    <input type="submit" value="Delete !!" class="btn btn-solid-danger">
+    <a class="btn btn-ghost" href="{% url 'Events' %}">Cancel</a>
+  </div>
+</form>
+{% endblock body %}

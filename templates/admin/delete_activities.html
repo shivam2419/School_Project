@@ -1,47 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "admin/adminbase.html" %}
+{% load static %}
+{% block title %}| Delete Image{% endblock title %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        body{
-            text-align: center;
-        }
-        input{
-            background-color: red;
-            width: 150px;
-            border: none;
-            box-shadow: 1px 2px 10px 2px black;
-            color: white;
-            font-size: 24px;
-            padding: 10px;
-            font-weight: bold;
-            font-family: Arial, Helvetica, sans-serif
-        }
-        input:hover{
-            scale: 1.1;
-            opacity: 80%;
-            cursor: pointer;
-        }
-    </style>
-</head>
-
-<body>
-    <form action="" method="POST">
-        {% csrf_token %}
-        <img src="{{data.activity.url}}" alt="" style="height: 200px; width: 200px; border-radius: 50%;">
-        <h1>Are you sure you want to delete this Image?</h1>
-        <input type="submit" value="Delete !!" id="activity-delete-btn" onclick="deleteActivity()">
-    </form>
-    <script>
-        function deleteActivity() {
-            let deleteBtn = document.getElementById('activity-delete-btn');
-            deleteBtn.value = "Deleting...";
-            deleteBtn.style.opacity = "50%";
-        }
-    </script>
-</body>
-
-</html>
+{% block body %}
+<form action="" method="POST" class="panel confirm">
+  {% csrf_token %}
+  <img src="{{data.activity.url}}" alt="" class="thumb">
+  <h1>Are you sure you want to delete this Image?</h1>
+  <div class="actions">
+    <input type="submit" value="Delete !!" id="activity-delete-btn" onclick="deleteActivity()" class="btn btn-solid-danger">
+    <a class="btn btn-ghost" href="{% url 'Activities' %}">Cancel</a>
+  </div>
+</form>
+<script>
+  function deleteActivity() {
+    let deleteBtn = document.getElementById('activity-delete-btn');
+    deleteBtn.value = "Deleting...";
+    deleteBtn.style.opacity = "50%";
+  }
+</script>
+{% endblock body %}

@@ -1,105 +1,30 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', sans-serif;
+.contact-hero {
+  background: linear-gradient(110deg, rgba(7, 31, 63, 0.92), rgba(11, 58, 111, 0.70)), url('cback.jpg') center / cover no-repeat;
+  padding: 80px 0;
 }
+.contact-in { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+.contact-text h2 { color: var(--white); font-size: clamp(30px, 5vw, 50px); margin-bottom: 18px; }
+.contact-text p { color: #d7e4f4; font-size: 17px; border-left: 4px solid var(--gold); padding-left: 18px; }
 
-.contact-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 50px 20px;
-  backdrop-filter: blur(5px);
-  background-image: url('cback.jpg'); /* Add your image path */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  min-height: 100vh;
-  color: #fff;
+.contact-form { background: var(--white); border-radius: var(--radius); padding: 34px; box-shadow: var(--shadow-lg); display: grid; gap: 14px; }
+.contact-form h3 { font-size: 26px; margin-bottom: 4px; }
+.contact-form .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.contact-form input:not([type="submit"]) {
+  width: 100%; padding: 12px 16px; border: 1.5px solid var(--line); border-radius: 10px;
+  background: var(--bg); font-size: 14px; color: var(--ink); transition: border-color 0.2s, background 0.2s;
 }
+.contact-form input:focus { outline: none; border-color: var(--blue); background: var(--white); }
+.contact-form input[type="submit"] { justify-self: start; padding: 12px 40px; }
 
-.middle {
-  background: rgba(0, 0, 0, 0.6);
-  padding: 30px;
-  border-radius: 10px;
-  width: 100%;
-  max-width: 600px;
-  margin-bottom: 30px;
+.why-contact { max-width: 800px; margin: 0 auto; padding: 40px; text-align: center; border-top: 5px solid var(--gold); }
+.why-contact h2 { font-size: 32px; margin-bottom: 14px; }
+.why-contact h2 span { color: var(--maroon); }
+.why-contact p { color: var(--muted); font-size: 16px; }
+
+@media (max-width: 991px) {
+  .contact-in { grid-template-columns: 1fr; }
 }
-
-.left h2 {
-  margin-bottom: 10px;
-  font-size: 28px;
-}
-
-.left p {
-  font-size: 16px;
-  margin-bottom: 20px;
-}
-
-form h3 {
-  margin-bottom: 15px;
-}
-
-form input[type="text"],
-form input[type="email"],
-form input[type="number"] {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: none;
-  border-radius: 5px;
-}
-
-form input[type="submit"] {
-  width: 100%;
-  padding: 10px;
-  background-color: #007bff;
-  color: white;
-  font-weight: bold;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-form input[type="submit"]:hover {
-  background-color: #0056b3;
-}
-
-.content {
-  text-align: center;
-  background: rgba(0, 0, 0, 0.5);
-  padding: 20px;
-  border-radius: 10px;
-  max-width: 800px;
-}
-
-.content h2 {
-  font-size: 26px;
-}
-
-.content h2 span {
-  color: #ffcc00;
-}
-
-.content p {
-  font-size: 16px;
-}
-
-/* Responsive Design */
-@media screen and (max-width: 768px) {
-  .middle,
-  .content {
-    width: 90%;
-    padding: 20px;
-  }
-
-  .left h2 {
-    font-size: 24px;
-  }
-
-  .content h2 {
-    font-size: 22px;
-  }
+@media (max-width: 575px) {
+  .contact-form .form-row { grid-template-columns: 1fr; }
+  .contact-form { padding: 24px; }
 }

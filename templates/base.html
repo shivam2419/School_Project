@@ -8,20 +8,15 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-    
+
       gtag('config', 'G-BGNQ5LJE7Y');
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'base.css' %}" />
     <link rel="stylesheet" href="{% block css %}{% endblock css %}"/>
-    <link rel="stylesheet" href="static/base.css" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link rel="manifest" href="{% static 'manifest.json' %}">
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-
 
     <!--Search Engine meta tags-->
     <title>Aryabhatta Public School {% block title %}{% endblock title %}</title>
@@ -39,13 +34,13 @@
     <meta property="og:description" content="{% block og_description %}Providing a nurturing and academically enriching environment for students in Agra.{% endblock %}">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.apsagra.org/">
-    <meta property="og:image" content="https://www.apsagra.org/static/logo.png">  <!-- Update with your actual logo/image URL -->
+    <meta property="og:image" content="https://www.apsagra.org/static/logo.png">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{% block twitter_title %}Aryabhatta Public School, Agra{% endblock %}">
     <meta name="twitter:description" content="{% block twitter_description %}Excellence in Education at Aryabhatta Public School.{% endblock %}">
-    <meta name="twitter:image" content="https://www.apsagra.org/static/logo.png"> <!-- Update with your actual logo/image URL -->
+    <meta name="twitter:image" content="https://www.apsagra.org/static/logo.png">
 
     <!-- Favicon -->
     <link rel="icon" href="https://www.apsagra.org/static/logo.png" type="image/x-icon">
@@ -57,7 +52,7 @@
       "name": "Aryabhatta Public School, Agra",
       "alternateName": "APS",
       "url": "https://www.apsagra.org/",
-      "logo": "https://www.apsagra.org/static/logo.png", 
+      "logo": "https://www.apsagra.org/static/logo.png",
       "contactPoint": {
         "@type": "ContactPoint",
         "telephone": "+91-9911014480",
@@ -75,7 +70,7 @@
     }
     </script>
     <!--Search Engine meta tags end-->
-    
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
@@ -93,226 +88,142 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,400;1,500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
       rel="stylesheet"
     />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v6.3.0/css/all.css"
     />
   </head>
   <body>
-    <nav id="nav">
-      <div id="bar">
-        <i Style="font-size:24px;" class="fa fa-bars" onclick="openNav()"></i>
+    <div class="scroll-progress" id="scrollProgress"></div>
+    <!-- Top utility bar -->
+    <div class="topbar">
+      <div class="wrap topbar-in">
+        <div class="topbar-contact">
+          <a href="tel:7011172174"><i class="fa-solid fa-phone"></i>+91-7011172174</a>
+          <a href="tel:9911414480" class="hide-sm">+91-9911414480</a>
+          <a href="tel:9911014480" class="hide-sm">+91-9911014480</a>
+          <a href="mailto:aryabhattapublicedu@gmail.com" class="hide-md"><i class="fa-regular fa-envelope"></i>aryabhattapublicedu@gmail.com</a>
+        </div>
+        <div class="topbar-social">
+          <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="mailto:info@aryabhattapublicedu@gmail.com" target="_blank" aria-label="Email"><i class="fab fa-google-plus-g"></i></a>
+          <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
       </div>
-      <a href="index"><img src="https://www.apsagra.org/static/logo.png" alt=".." /></a>
-      <h2>ARYABHATTA</h2>
-      <ul>
-      <li><i class="fa fa-user" style="margin-right: 10px"></i
-          ><a href="index">HOME</a>
-        </li>
+    </div>
 
-        <li>
-          <i class="fa fa-group" style="margin-right: 10px"></i
-          ><a href="about">ABOUT US</a>
-        </li>
+    <!-- Header & navigation -->
+    <header id="nav" class="site-header">
+      <div class="wrap header-in">
+        <a href="{% url 'index' %}" class="brand">
+          <img src="https://www.apsagra.org/static/logo.png" alt="Aryabhatta Public School logo" />
+          <span class="brand-text">
+            <strong>ARYABHATTA</strong>
+            <small>Public School, Agra</small>
+          </span>
+        </a>
 
-        <li>
-          <i class="fa fa-newspaper-o" style="margin-right: 10px"></i
-          ><a href="admission">ADMISSIONS</a>
-        </li>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mainMenu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
 
-        <li>
-          <i class="fa fa-map-marker" style="margin-right: 10px"></i
-          ><a href="contact">CONTACT</a>
-        </li>
-
-        <li>
-          <i class="fa fa-file-text-o" style="margin-right: 10px"></i
-          ><a href="{% url 'Mandatory-disclosure' %}">MANDATORY-DISCLOSURE</a>
-        </li>
-
-        <li >
-        <i class="fa fa-gear"></i>
-        <a href="service">SERVICES</a>
-        <ul class="dropdown">
-        <li value=""><a href="{% static 'fees.docx' %}" ><i class="fa fa-star" id="star"></i>Fees Structure</a></li>
-        <li value="about"><a href="{% static 'busroute.docx' %}"><i class="fa fa-star" id="star"></i>Bus Route</a></li>
-        <li value="admission"><a href="Gallery"><i class="fa fa-star" id="star"></i>School Gallery</a></li>
-        </ul>
-        </li>
-      </ul>
-      <button id="navbutton"><a href="admission">Register</a></button>
-    </nav>
-    <!--side bar-->
-    <div id="mySidebar" class="sidebar">
-      <p  class="closebtn" onclick="closeNav()" style='color:white;'>&times;</p>
-      <h3>Menu</h3>
-      <a href="{% url 'index' %}"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;&nbsp;Home</a>
-      <a href="{% url 'about' %}"><i class="fa fa-info-circle" aria-hidden="true"></i>&nbsp;&nbsp;About Us</a>
-      <a href="{% url 'admission' %}"><i class="fa fa-university" aria-hidden="true"></i>&nbsp;&nbsp;Admissions</a>
-      <a href="{% url 'contact' %}"><i class="fa fa-address-book"aria-hidden="true"></i>&nbsp;&nbsp;Contact</a>
-      <a href="{% url 'Mandatory-disclosure' %}"><i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp;&nbsp;Mandatory-Disclosure</a>
-      <a href="{% url 'service' %}"><i class="fa fa-cog" aria-hidden="true"></i>&nbsp;&nbsp;Services</a>
-      <a href="{% url 'enquire' %}"><i class="fa fa-registered" aria-hidden="true"></i>&nbsp;&nbsp;Register</a>
-      
-  </div>
+        <nav class="main-menu" id="mainMenu" aria-label="Main navigation">
+          <ul>
+            <li><a href="{% url 'index' %}" class="{% if request.resolver_match.url_name == 'index' or request.path == '/' %}active{% endif %}"><i class="fa-solid fa-house"></i>Home</a></li>
+            <li><a href="{% url 'about' %}" class="{% if request.resolver_match.url_name == 'about' %}active{% endif %}"><i class="fa-solid fa-users"></i>About Us</a></li>
+            <li><a href="{% url 'admission' %}" class="{% if request.resolver_match.url_name == 'admission' %}active{% endif %}"><i class="fa-solid fa-graduation-cap"></i>Admissions</a></li>
+            <li><a href="{% url 'contact' %}" class="{% if request.resolver_match.url_name == 'contact' %}active{% endif %}"><i class="fa-solid fa-location-dot"></i>Contact</a></li>
+            <li><a href="{% url 'Mandatory-disclosure' %}" class="{% if request.resolver_match.url_name == 'Mandatory-disclosure' %}active{% endif %}"><i class="fa-regular fa-file-lines"></i>Mandatory-Disclosure</a></li>
+            <li class="has-dropdown">
+              <a href="{% url 'service' %}" class="{% if request.resolver_match.url_name == 'service' %}active{% endif %}"><i class="fa-solid fa-gear"></i>Services<i class="fa-solid fa-angle-down caret"></i></a>
+              <ul class="dropdown">
+                <li><a href="{% static 'fees.docx' %}"><i class="fa-solid fa-star"></i>Fees Structure</a></li>
+                <li><a href="{% static 'busroute.docx' %}"><i class="fa-solid fa-star"></i>Bus Route</a></li>
+                <li><a href="{% url 'Gallery' %}"><i class="fa-solid fa-star"></i>School Gallery</a></li>
+              </ul>
+            </li>
+          </ul>
+          <a href="{% url 'admission' %}" class="btn btn-gold nav-cta">Register</a>
+        </nav>
+      </div>
+    </header>
 
     {% block body %}
-    
+
     {% endblock body %}
-    <footer>
-      <div class="footer-top-area">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-3 col-md-6 col-12">
-              <div id="block-5" class="widget widget_block">
-                <a href="{% url 'adminDashboard' %}">
-                  <p>
-                    <img
-                      loading="lazy"
-                      src="https://www.apsagra.org/static/logo.png"
-                      alt="Girl in a jacket"
-                      width="350"
-                      height="100"
-                    />
-                  </p>
-                     </a>
-              </div>
-              <div id="rdtheme_about-2" class="widget widget_rdtheme_about">
-                <p class="rtin-des">
-                  Aryabhatta Public School is a premier educational
-                  institution of Agra City.
-                </p>
-                <ul></ul>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-12">
-              <div id="nav_menu-2" class="widget widget_nav_menu">
-                <h3 class="widgettitle">Featured Links</h3>
-                <div class="menu-featured-links-container">
-                  <ul id="menu-featured-links" class="menu">
-                    <li
-                      id="menu-item-7857"
-                      class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7857"
-                    >
-                      <a href="{% url 'Mandatory-disclosure' %}"
-                        >Mandatory-Disclosure</a
-                      >
-                    </li>
-                    <li
-                      id="menu-item-4059"
-                      class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4059"
-                    >
-                      <a href="{% url "service" %}">Sports</a>
-                    </li>
-                    <li
-                      id="menu-item-4061"
-                      class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4061"
-                    >
-                      <a href="{% url "service" %}"
-                        >Transport</a
-                      >
-                    </li>
-                    <li
-                      id="menu-item-4062"
-                      class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4062"
-                    >
-                      <a href="{% url "contact" %}">Contact Us</a>
-                    </li>
-                    <li
-                      id="menu-item-4695"
-                      class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4695"
-                    >
-                      <a href="{% url "Gallery" %}">Gallery</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-12">
-              <div id="rdtheme_info-2" class="widget widget_rdthemeinfo">
-                <h3 class="widgettitle">Information</h3>
-                <ul>
-                  <li>
-                    <i class="far fa-paper-plane" aria-hidden="true"></i><a href="">Aryabhatta Public School ,Agra</a>
-                  </li>
-                  <li>
-                    <i class="far fa-envelope" aria-hidden="true"></i>
-                    <a href="mailto:aryabhattapublicedu@gmail.com">aryabhattapublicedu@gmail.com</a>
-                  </li>
-                </ul>
-              </div>
-              <div id="block-9" class="widget widget_block">
-                <a href="#"
-                  ><i
-                    class="fa fa-phone"
-                    style="font-size: 14px; color: #fdc800"
-                  ></i></a
-                >&nbsp;&nbsp;&nbsp; <a href="tel:7011172174">+91-7011172174</a>,
-                <a href="tel:9911414480">+91-9911414480</a
-                >,
-                <a href="tel:9911014480">+91-9911014480</a>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-12">
-              <div id="rdtheme_about-3" class="widget widget_rdtheme_about">
-                <h3 class="widgettitle">Social Media</h3>
-                <p class="rtin-des"></p>
-                <ul>
-                  <li>
-                    <a
-                      href="#"
-                      target="_blank"
-                      ><i class="fab fa-facebook-f"></i
-                    ></a>
-                  </li>
-                  <li>
-                    <a href="#" target="_blank"
-                      ><i class="fab fa-twitter"></i
-                    ></a>
-                  </li>
-                  <li>
-                    <a href="mailto:info@aryabhattapublicedu@gmail.com" target="_blank"
-                      ><i class="fab fa-google-plus-g"></i
-                    ></a>
-                  </li>
-                  <li>
-                    <a href="#" target="_blank"
-                      ><i class="fab fa-linkedin-in"></i
-                    ></a>
-                  </li>
-                  <li>
-                    <a href="#" target="_blank"
-                      ><i class="fab fa-instagram"></i
-                    ></a>
-                  </li>
-                </ul>
-              </div>
-               <div id="block-6" class="widget widget_block">
-                <p>
-                  <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d858.203584084713!2d78.0865550987398!3d27.058539785857043!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sallen%20school%20agra!5e1!3m2!1sen!2sin!4v1749494515368!5m2!1sen!2sin" height="250" style="border:0; width: 100%;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" ></iframe>
-                </p>
-              </div> 
-              
-            </div>
-          </div>
+
+    <footer class="site-footer">
+      <div class="wrap footer-grid">
+        <div class="f-col f-about">
+          <a href="{% url 'adminDashboard' %}" class="f-logo">
+            <img
+              loading="lazy"
+              src="https://www.apsagra.org/static/logo.png"
+              alt="Aryabhatta Public School logo"
+            />
+          </a>
+          <p>
+            Aryabhatta Public School is a premier educational
+            institution of Agra City.
+          </p>
         </div>
 
-      <div class="footer-bottom-area">
-        <div class="container">
-          <div class="row">
-            {% comment %} <div class="col-sm-12 col-xs-12 text-center">
-              © Copyright <a href=""> Aryabhatta Agra</a> 2025.
-            </div> {% endcomment %}
+        <div class="f-col">
+          <h3>Featured Links</h3>
+          <ul class="f-links">
+            <li><a href="{% url 'Mandatory-disclosure' %}">Mandatory-Disclosure</a></li>
+            <li><a href="{% url 'service' %}">Sports</a></li>
+            <li><a href="{% url 'service' %}">Transport</a></li>
+            <li><a href="{% url 'contact' %}">Contact Us</a></li>
+            <li><a href="{% url 'Gallery' %}">Gallery</a></li>
+          </ul>
+        </div>
+
+        <div class="f-col">
+          <h3>Information</h3>
+          <ul class="f-info">
+            <li>
+              <i class="fa-regular fa-paper-plane" aria-hidden="true"></i>
+              <a href="">Aryabhatta Public School ,Agra</a>
+            </li>
+            <li>
+              <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+              <a href="mailto:aryabhattapublicedu@gmail.com">aryabhattapublicedu@gmail.com</a>
+            </li>
+            <li>
+              <i class="fa-solid fa-phone" aria-hidden="true"></i>
+              <span>
+                <a href="tel:7011172174">+91-7011172174</a>,
+                <a href="tel:9911414480">+91-9911414480</a>,
+                <a href="tel:9911014480">+91-9911014480</a>
+              </span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="f-col">
+          <h3>Social Media</h3>
+          <ul class="f-social">
+            <li><a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="#" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="mailto:info@aryabhattapublicedu@gmail.com" target="_blank" aria-label="Email"><i class="fab fa-google-plus-g"></i></a></li>
+            <li><a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
+            <li><a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+          </ul>
+          <div class="f-map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d858.203584084713!2d78.0865550987398!3d27.058539785857043!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sallen%20school%20agra!5e1!3m2!1sen!2sin!4v1749494515368!5m2!1sen!2sin" height="200" style="border:0; width: 100%;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="School location map"></iframe>
           </div>
         </div>
       </div>
     </footer>
+
+    <button class="to-top" id="toTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
       integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
@@ -325,59 +236,62 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-    <script>
-      $("#bar").click(function () {
-        $("#nav").hide();
-        var sidebar = document.getElementById("navbar");
-        sidebar.style.display = "block";
-      });
-      $(".close").click(function () {
-        $("#navbar").hide();
-        $("#nav").show();
-      });
-    </script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-      AOS.init();
-    </script>
-    <script>
-      /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
-      function openNav() {
-        document.getElementById("mySidebar").style.width = "250px";
-        document.getElementById("main").style.marginLeft = "250px";
-        document.getElementById("nav").style.display = "none";
+      AOS.init({ once: true });
 
-    }
+      // Scroll progress, sticky header state and back-to-top
+      (function () {
+        var bar = document.getElementById("scrollProgress");
+        var header = document.getElementById("nav");
+        var top = document.getElementById("toTop");
+        function onScroll() {
+          var y = window.scrollY || document.documentElement.scrollTop;
+          var h = document.documentElement.scrollHeight - window.innerHeight;
+          bar.style.width = (h > 0 ? (y / h) * 100 : 0) + "%";
+          header.classList.toggle("scrolled", y > 40);
+          top.classList.toggle("show", y > 500);
+        }
+        window.addEventListener("scroll", onScroll, { passive: true });
+        top.addEventListener("click", function () { window.scrollTo({ top: 0, behavior: "smooth" }); });
+        onScroll();
+      })();
 
-      /* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
-      function closeNav() {
-        document.getElementById("nav").style.display = "flex";
-          document.getElementById("mySidebar").style.width = "0";
-          document.getElementById("main").style.marginLeft = "0";
-      }
-    </script>
-    <script>
+      // Mobile menu
+      (function () {
+        var toggle = document.getElementById("menuToggle");
+        var header = document.getElementById("nav");
+        toggle.addEventListener("click", function () {
+          var open = header.classList.toggle("menu-open");
+          toggle.setAttribute("aria-expanded", open);
+          toggle.firstElementChild.className = open ? "fa-solid fa-xmark" : "fa-solid fa-bars";
+        });
+        var dd = document.querySelector(".has-dropdown > a");
+        dd.addEventListener("click", function (e) {
+          if (window.matchMedia("(max-width: 991px)").matches && !dd.parentNode.classList.contains("dd-open")) {
+            e.preventDefault();
+            dd.parentNode.classList.add("dd-open");
+          }
+        });
+      })();
+
       $(".owl-carousel").owlCarousel({
         loop: true,
-        margin: 10,
-        nav: false,
+        center: true,
+        margin: 22,
+        nav: true,
+        navText: ['<i class="fa-solid fa-chevron-left"></i>', '<i class="fa-solid fa-chevron-right"></i>'],
+        dots: true,
+        autoplay: true,
+        autoplayTimeout: 3500,
+        autoplayHoverPause: true,
+        smartSpeed: 600,
         responsive: {
-          0: {
-            items: 1,
-          },
-          600: {
-            items: 3,
-          },
-          1000: {
-            items: 5,
-          },
+          0: { items: 1 },
+          700: { items: 2 },
+          1000: { items: 3 },
         },
       });
     </script>
-    <script
-      src="https://code.jquery.com/jquery-3.7.0.min.js"
-      integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
-      crossorigin="anonymous"
-    ></script>
   </body>
 </html>

@@ -1,40 +1,48 @@
 {% extends "admin/adminbase.html" %}
 {% load static %}
 {% block title %}| Add Notice{% endblock title %}
-{% block css %}{% static "addnotice.css" %}{% endblock css %}
 
 {% block body %}
-    <div class="container">
-        <form action="" method="POST">
-            {% csrf_token %}
-            <h1>Enter Notice Details</h1>
-            <br>
-            <input type="date" name="date" required>
-            <br><br>
-            <input type="text" placeholder="Enter Notice* ( please write short and concise info)" name="notice" required>
-            <br><br>
-            <input type="submit" value="SUBMIT" id="btn">
-        </form>
-        <div class="info">
-            <form action="" method="GET">
-                <table>
-                    <tr>
-                        <th>S.no</th>
-                        <th>Date</th>
-                        <th>Topic</th>
-                        <th>Delete</th>
-                    </tr>
-                    {% for items in data %}
-                    <tr>
-                        <td>{{ forloop.counter }}.</td>
-                        <td>{{items.date}}</td>
-                        <td>{{items.notice}}</td>
-                        <td><button><a href="{% url 'deleteNotice' items.id %}">Delete</a></button></td>
-                    </tr>
-
-                    {% endfor %}
-                </table>
-            </form>
-        </div>
+<div class="container">
+  <form action="" method="POST" class="panel">
+    {% csrf_token %}
+    <h1 class="panel-head">Enter Notice Details</h1>
+    <div class="form-grid">
+      <div class="field">
+        <label for="notice_date">Date</label>
+        <input type="date" id="notice_date" name="date" required>
+      </div>
+      <div class="field">
+        <label for="notice_text">Notice</label>
+        <input type="text" id="notice_text" placeholder="Enter Notice* ( please write short and concise info)" name="notice" required>
+      </div>
     </div>
-    {% endblock body %}
+    <div class="form-actions">
+      <input type="submit" value="SUBMIT" id="btn" class="btn btn-gold">
+    </div>
+  </form>
+
+  <div class="info table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>S.no</th>
+          <th>Date</th>
+          <th>Topic</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for items in data %}
+        <tr>
+          <td>{{ forloop.counter }}.</td>
+          <td>{{items.date}}</td>
+          <td>{{items.notice}}</td>
+          <td><a class="btn btn-danger btn-sm" href="{% url 'deleteNotice' items.id %}"><i class="fa-regular fa-trash-can"></i>Delete</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock body %}

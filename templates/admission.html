@@ -1,311 +1,105 @@
-{% extends "base.html" %} {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    {% block css %}static/admission.css{% endblock css %}
-    {% block meta_description %}Find admission details, eligibility, and process at Aryabhatta Public School, Agra.{% endblock %}
-    <title>{% block title %}| ADMISSION{% endblock title %}</title>
-  </head>
-  {% block body %}
-  <div class="container">
-    <div class="header">
-      <h3 style="margin: 15px 0px 20px 0px; font-size: 30px">
-        <center>
-          <b>Welcome to the world of Aryabhatta Public School, Agra</b>
-        </center>
-      </h3>
-      <h4>
-        <center
-          style="
-            font-family: calibri black;
-            font-size: 19px;
-            margin-bottom: 20px;
-          "
-        >
-          Shamshabad Road, Agra (Uttar Pradesh)<br />
-          Phone No: 0129-2280522, 2290522, 7017217471<br />
-          Email Id: aryabhattapublicedu.com
-        </center>
-      </h4>
-    </div>
-    <div class="info">
-      <div id="ContentPanel" style="box-shadow:1px 2px 10px 1px gray">
-        <table border="1" cellpadding="1" cellspacing="1" style="width: 100%">
-          <tbody>
-            <tr
-              class="caption"
-              style="background-color: rgb(11, 80, 145); color: white; border:none;"
-            >
-              <th colspan="2" id="head">
-                <p>
-                  <span style="font-size: 16px"
-                    ><strong
-                      >REGISTRATION FOR SESSION:
-                      {{next_year}}-{{over_year}}</strong
-                    ></span
-                  >
-                </p>
-              </th>
-            </tr>
-            <tr>
-              <td colspan="2">
-                <p>
-                  <br />
-                  <span style="font-size: 16px"
-                    ><strong
-                      >Registration will be Online&nbsp; only through School
-                      website w.e.f. 01.09.{{year}}</strong
-                    >.</span
-                  >
-                </p>
+{% extends "base.html" %}
+{% load static %}
+{% block css %}{% static 'admission.css' %}{% endblock css %}
+{% block meta_description %}Find admission details, eligibility, and process at Aryabhatta Public School, Agra.{% endblock %}
+{% block title %}| ADMISSION{% endblock title %}
 
-                <ul>
-                  <li>
-                    <p>
-                      <span style="font-size: 16px"
-                        >Submission of Application does not guarantee
-                        admission.</span
-                      >
-                    </p>
-                  </li>
-                  <li>
-                    <p>
-                      <span style="font-size: 16px"
-                        >Incomplete / Incorrect forms will be deemed as
-                        rejected.</span
-                      >
-                    </p>
-                  </li>
-                  <li>
-                    <p>
-                      <span style="font-size: 16px"
-                        >The decision of the School&nbsp;Selection Committee
-                        will be final and binding to all.</span
-                      >
-                    </p>
-                  </li>
-                  <li>
-                    <p>
-                      <span style="font-size: 16px"
-                        >Parents are advised not to fill more than one form for
-                        one applicant.</span
-                      >
-                    </p>
-                  </li>
-                  <li>
-                    <p>
-                      <span style="font-size: 16px"
-                        >Transport facility is available on existing routes
-                        only.</span
-                      >
-                    </p>
-                  </li>
-                  <li>
-                    <p>
-                      <span style="font-size: 16px"
-                        >On account of seats being very limited,&nbsp;the
-                        admission process focuses mainly on personal interaction
-                        and academic assessment.</span
-                      >
-                    </p>
-                  </li>
-                  <li>
-                    <p>
-                      <span style="font-size: 16px"
-                        ><strong
-                          ><span style="background-color: #00ffff"
-                            >After filling the Online Registration Form, please
-                            check for the date &amp; time slot for the
-                            Interaction Session / Entrance Test mentioned on
-                            your Registration Form.&nbsp; Please adhere to it to
-                            avoid inconvenience.</span
-                          ></strong
-                        ></span
-                      >
-                    </p>
-                  </li>
-                  <li>
-                    <p>
-                      <span style="font-size: 16px"
-                        ><strong
-                          ><span style="background-color: #00ffff"
-                            >Students appearing for Test for Classes - I onwards
-                            to come in their previous school uniform.</span
-                          ></strong
-                        ></span
-                      >
-                    </p>
-                  </li>
-                </ul>
-              </td>
-            </tr>
-            <tr>
-              <th>
-                <p style="text-align: center">
-                  <strong
-                    ><span style="font-size: 25px"
-                      ><a
-                        class="my btn btn-danger"
-                        href="contact"
-                        target="_blank"
-                        data-original-title=""
-                        title=""
-                        ><span style="color: #000000"
-                          >School Transport Details<br />
-                        Contact Us</span
-                        ></a
-                      ></span
-                    ></strong
-                  >
-                </p>
-              </th>
-              <th>
-                <p style="text-align: center">
-                  <strong
-                    ><span style="font-size: 25px"
-                      ><a
-                        class="my btn btn-danger"
-                        href="contact"
-                        target="_blank"
-                        data-original-title=""
-                        title=""
-                        ><span style="color: #000000"
-                          >Entrance Test Syllabus<br />
-                          Contact Us</span
-                        ></a
-                      ></span
-                    ></strong
-                  >
-                </p>
-              </th>
-            </tr>
-            <tr>
-              <th>
-                <p style="text-align: center">
-                  <span style="font-size: 16px"
-                    ><strong>Pedagogical&nbsp;Structure</strong>
-                    <strong
-                      >(Academic&nbsp;Year&nbsp;
-                      {{next_year}}-{{over_year}})</strong
-                    ></span
-                  >
-                </p>
-              </th>
-              <th>
-                <p style="text-align: center">
-                  <span style="font-size: 16px"
-                    ><strong>Age as on 01.04.{{next_year}}</strong></span
-                  >
-                </p>
-              </th>
-            </tr>
-            <tr>
-              <td>
-                <p style="text-align: center">
-                  <span style="font-size: 16px"><strong>Nursery</strong></span>
-                </p>
-              </td>
-              <td>
-                <p style="text-align: center">
-                  <span style="font-size: 16px"><strong>3 YEARS</strong></span>
-                </p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p style="text-align: center">
-                  <span style="font-size: 16px"><strong>L.K.G.</strong></span>
-                </p>
-              </td>
-              <td>
-                <p style="text-align: center">
-                  <span style="font-size: 16px"><strong>4 YEARS</strong></span>
-                </p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p style="text-align: center">
-                  <span style="font-size: 16px"><strong>U.K.G.</strong></span>
-                </p>
-              </td>
-              <td>
-                <p style="text-align: center">
-                  <span style="font-size: 16px"><strong>5 YEARS</strong></span>
-                </p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p style="text-align: center">
-                  <span style="font-size: 16px"><strong>I</strong></span>
-                </p>
-              </td>
-              <td>
-                <p style="text-align: center">
-                  <span style="font-size: 16px"><strong>6 YEARS</strong></span>
-                </p>
-              </td>
-            </tr>
-            <tr>
-              <td colspan="2" id="last">
-                <div>&nbsp;</div>
-                <p>
-                  <strong style="font-size: 20px; text-align: center"
-                    >Documents required at the time of Admission</strong
-                  >
-                </p>
-                <div>
-                  <ul>
-                    <li>
-                      <span style="font-size: 16px"
-                        >1. SRN No. from the previous school&nbsp;<strong
-                          >(Classes : II-IX)</strong
-                        ></span
-                      >
-                    </li>
-                    <li>
-                      <span style="font-size: 16px"
-                        >2. School Leaving / Transfer
-                        Certificate&nbsp;<strong>(Original)</strong>&nbsp;from
-                        previous school attended</span
-                      >
-                    </li>
-                    <li>
-                      <span style="font-size: 16px"
-                        >3. Vaccination Card (for Classes Nursery, LKG &amp;
-                        UKG)</span
-                      >
-                    </li>
-                    <li>
-                      <span style="font-size: 16px"
-                        >4. Annual Report Card (last class passed)</span
-                      >
-                    </li>
-                  </ul>
-                </div>
-                <p>&nbsp;</p>
-              </td>
-            </tr>
-            <tr>
-              <td colspan="2">
-                <p style="text-align: left">
-                  <span style="font-size: 20px"
-                    ><a
-                      href="admission2"
-                      data-original-title=""
-                      title=""
-                      >
-                      <img src={% static "next-image.jpg" %} alt="" id="l_span"></a
-                    ></span
-                  >
-                </p>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+{% block body %}
+<section class="page-banner">
+  <h1>Welcome to the world of Aryabhatta Public School, Agra</h1>
+  <p>
+    Shamshabad Road, Agra (Uttar Pradesh)<br />
+    Phone No: 0129-2280522, 2290522, 7017217471<br />
+    Email Id: aryabhattapublicedu.com
+  </p>
+</section>
+
+<section class="section">
+  <div class="wrap adm">
+    {% if message %}
+    <div class="adm-message"><i class="fa-solid fa-circle-check"></i>{{ message }}</div>
+    {% endif %}
+
+    <div class="adm-card card" data-aos="fade-up">
+      <div class="adm-head">
+        REGISTRATION FOR SESSION: {{next_year}}-{{over_year}}
+      </div>
+
+      <div class="adm-body">
+        <p class="adm-lead">
+          Registration will be Online&nbsp; only through School
+          website w.e.f. 01.09.{{year}}.
+        </p>
+
+        <ul class="adm-rules">
+          <li>Submission of Application does not guarantee admission.</li>
+          <li>Incomplete / Incorrect forms will be deemed as rejected.</li>
+          <li>The decision of the School&nbsp;Selection Committee will be final and binding to all.</li>
+          <li>Parents are advised not to fill more than one form for one applicant.</li>
+          <li>Transport facility is available on existing routes only.</li>
+          <li>
+            On account of seats being very limited,&nbsp;the admission process
+            focuses mainly on personal interaction and academic assessment.
+          </li>
+          <li class="hl">
+            After filling the Online Registration Form, please check for the
+            date &amp; time slot for the Interaction Session / Entrance Test
+            mentioned on your Registration Form.&nbsp; Please adhere to it to
+            avoid inconvenience.
+          </li>
+          <li class="hl">
+            Students appearing for Test for Classes - I onwards to come in
+            their previous school uniform.
+          </li>
+        </ul>
+
+        <div class="adm-links">
+          <a href="{% url 'contact' %}" target="_blank">
+            <i class="fa-solid fa-bus"></i>
+            <span>School Transport Details<br />Contact Us</span>
+          </a>
+          <a href="{% url 'contact' %}" target="_blank">
+            <i class="fa-solid fa-pen-to-square"></i>
+            <span>Entrance Test Syllabus<br />Contact Us</span>
+          </a>
+        </div>
+
+        <div class="adm-table-wrap">
+          <table class="adm-table">
+            <thead>
+              <tr>
+                <th>Pedagogical&nbsp;Structure (Academic&nbsp;Year&nbsp; {{next_year}}-{{over_year}})</th>
+                <th>Age as on 01.04.{{next_year}}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Nursery</td><td>3 YEARS</td></tr>
+              <tr><td>L.K.G.</td><td>4 YEARS</td></tr>
+              <tr><td>U.K.G.</td><td>5 YEARS</td></tr>
+              <tr><td>I</td><td>6 YEARS</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="adm-docs">
+          <h2>Documents required at the time of Admission</h2>
+          <ul>
+            <li>1. SRN No. from the previous school&nbsp;<strong>(Classes : II-IX)</strong></li>
+            <li>
+              2. School Leaving / Transfer
+              Certificate&nbsp;<strong>(Original)</strong>&nbsp;from
+              previous school attended
+            </li>
+            <li>3. Vaccination Card (for Classes Nursery, LKG &amp; UKG)</li>
+            <li>4. Annual Report Card (last class passed)</li>
+          </ul>
+        </div>
+
+        <div class="adm-next">
+          <a href="{% url 'enquire' %}" class="btn btn-gold">NEXT <i class="fa-solid fa-angles-right"></i></a>
+        </div>
       </div>
     </div>
   </div>
-  {% endblock body %}
-</html>
+</section>
+{% endblock body %}

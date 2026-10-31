@@ -1,46 +1,58 @@
 {% extends "admin/adminbase.html" %}
 {% load static %}
 {% block title %}| Add Events{% endblock title %}
-{% block css %}{% static "eventsdata.css" %}{% endblock css %}
 
 {% block body %}
-    <div class="container">
-        <form action="" method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
-            <h1>Enter Event Details</h1>
-            <br>
-            <input type="text" placeholder="Enter event name*" name="event_name" required>
-            <br><br>
-            <input type="text" placeholder="Enter event description*" name="event_desc" required>
-            <br><br>
-            <input type="date" name="event_date" required>
-            <br><br>
-            <input type="file" name="event_img" required>
-            <br><br>
-            <input type="submit" value="SUBMIT" id="btn">
-        </form>
-        <div class="info">
-            <form action="" method="GET">
-                <table>
-                    <tr>
-                        <th>S.no</th>
-                        <th>Event name</th>
-                        <th>Description</th>
-                        <th>Event Date</th>
-                        <th>Delete</th>
-                    </tr>
-                    {% for items in data %}
-                    <tr>
-                        <td>{{ forloop.counter }}.</td>
-                        <td>{{items.event}}</td>
-                        <td>{{items.event_desc|slice:":10"}}..</td>
-                        <td>{{items.date}} {{items.month}}</td>
-                        <td><button><a href="{% url 'deleteEvent' items.id %}">Delete</a></button></td>
-                    </tr>
-
-                    {% endfor %}
-                </table>
-            </form>
-        </div>
+<div class="container">
+  <form action="" method="POST" enctype="multipart/form-data" class="panel">
+    {% csrf_token %}
+    <h1 class="panel-head">Enter Event Details</h1>
+    <div class="form-grid">
+      <div class="field">
+        <label for="event_name">Event name</label>
+        <input type="text" id="event_name" placeholder="Enter event name*" name="event_name" required>
+      </div>
+      <div class="field">
+        <label for="event_desc">Description</label>
+        <input type="text" id="event_desc" placeholder="Enter event description*" name="event_desc" required>
+      </div>
+      <div class="field">
+        <label for="event_date">Event Date</label>
+        <input type="date" id="event_date" name="event_date" required>
+      </div>
+      <div class="field">
+        <label for="event_img">Image</label>
+        <input type="file" id="event_img" name="event_img" required>
+      </div>
     </div>
+    <div class="form-actions">
+      <input type="submit" value="SUBMIT" id="btn" class="btn btn-gold">
+    </div>
+  </form>
+
+  <div class="info table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>S.no</th>
+          <th>Event name</th>
+          <th>Description</th>
+          <th>Event Date</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for items in data %}
+        <tr>
+          <td>{{ forloop.counter }}.</td>
+          <td>{{items.event}}</td>
+          <td>{{items.event_desc|slice:":10"}}..</td>
+          <td>{{items.date}} {{items.month}}</td>
+          <td><a class="btn btn-danger btn-sm" href="{% url 'deleteEvent' items.id %}"><i class="fa-regular fa-trash-can"></i>Delete</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
 {% endblock body %}

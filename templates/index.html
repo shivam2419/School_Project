@@ -1,223 +1,290 @@
-{% extends "base.html" %} {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    {% block css %}{% static "index.css" %}{% endblock css %}
-    <title>{% block title %}Home{% endblock title %}</title>
-  </head>
-  {% block body %}
-  <div class="container">
-    <div class="middle">
-      <div class="content">
-        <div class="left">
-          <h1>Aryabhatta Public School</h1>
-          <p>
-            Aryabhatta public school is recognized as the Best school in
-            Agra & among the top schools in Agra
-          </p>
-          <br /><br />
-          <button><a href="admission">Register</a></button>
-        </div>
+{% extends "base.html" %}
+{% load static %}
+{% block css %}{% static "index.css" %}{% endblock css %}
+{% block title %}Home{% endblock title %}
+
+{% block body %}
+<main>
+  <!-- Hero -->
+  <section class="hero">
+    <span class="orb orb-1"></span>
+    <span class="orb orb-2"></span>
+    <div class="wrap hero-in">
+      <div class="hero-text" data-aos="fade-up" data-aos-duration="900">
+        <h1>Aryabhatta <span>Public School</span></h1>
+        <p>
+          Aryabhatta public school is recognized as the Best school in
+          Agra &amp; among the top schools in Agra
+        </p>
+        <a href="{% url 'admission' %}" class="btn btn-gold btn-lg">Register <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="hero-visual" aria-hidden="true" data-aos="zoom-in" data-aos-duration="1100">
+        <div class="emblem-ring"></div>
+        <div class="emblem-ring r2"></div>
+        <div class="emblem"><img src="{% static 'logo.png' %}" alt="" /></div>
+        <span class="float-ico i1"><i class="fa-solid fa-graduation-cap"></i></span>
+        <span class="float-ico i2"><i class="fa-solid fa-book-open"></i></span>
+        <span class="float-ico i3"><i class="fa-solid fa-trophy"></i></span>
+        <span class="float-ico i4"><i class="fa-solid fa-flask"></i></span>
       </div>
     </div>
-    <div class="new">
-      <marquee behavior="" direction="left">
+  </section>
+
+  <!-- Quick links -->
+  <section class="quick">
+    <div class="wrap quick-grid">
+      <a href="{% url 'admission' %}" class="q-card" data-aos="fade-up"><i class="fa-solid fa-graduation-cap"></i><span>Admissions</span></a>
+      <a href="{% url 'Mandatory-disclosure' %}" class="q-card" data-aos="fade-up" data-aos-delay="60"><i class="fa-regular fa-file-lines"></i><span>Mandatory-Disclosure</span></a>
+      <a href="{% url 'Gallery' %}" class="q-card" data-aos="fade-up" data-aos-delay="120"><i class="fa-regular fa-images"></i><span>School Gallery</span></a>
+      <a href="{% url 'contact' %}" class="q-card" data-aos="fade-up" data-aos-delay="180"><i class="fa-solid fa-location-dot"></i><span>Contact Us</span></a>
+      <a href="{% static 'fees.docx' %}" class="q-card" data-aos="fade-up" data-aos-delay="240"><i class="fa-solid fa-indian-rupee-sign"></i><span>Fees Structure</span></a>
+      <a href="{% static 'busroute.docx' %}" class="q-card" data-aos="fade-up" data-aos-delay="300"><i class="fa-solid fa-bus"></i><span>Bus Route</span></a>
+    </div>
+  </section>
+
+  <!-- Ticker -->
+  <div class="ticker">
+    <div class="wrap ticker-in">
+      <marquee behavior="" direction="left" scrollamount="6" onmouseover="this.stop()" onmouseout="this.start()">
         <img src="{% static 'new.gif' %}" alt="" />
-        <p><a href="admission">Admission open for classes Nur to VIII</a></p>
+        <p><a href="{% url 'admission' %}">Admission open for classes Nur to VIII</a></p>
       </marquee>
     </div>
-    <div class="message">
-      <div class="about_school">
-        <h2>President's Message</h2>
-        <img src="{% static 'president.jpeg' %}" alt="" />
+  </div>
+
+  <!-- Messages -->
+  <section class="section">
+    <div class="wrap messages">
+      <article class="msg-card card" data-aos="fade-up">
+        <div class="msg-head">
+          <img src="{% static 'president.jpeg' %}" alt="President" />
+          <h2>President's Message</h2>
+        </div>
+        <i class="fa-solid fa-quote-right msg-quote"></i>
         <p>
           A dream comes true - a dream of social commitment and responsibility.
           I look forward for the great development of technology and the ways by
           which the younger generation obtains it. | will be delighted to see my
           endeavors - Indian Era Sr. Secondary School-enhances in moulding the
           future citizens with modern education, without...
-          <br /><br />
-          <button><a href="about">Read More...</a></button>
         </p>
-      </div>
-      <div class="principal_message">
-        <h2>Principal Message</h2>
-        <img src="{% static 'sir.jpg' %}" alt="" />
+        <a href="{% url 'about' %}" class="btn btn-navy">Read More...</a>
+      </article>
+
+      <article class="msg-card card" data-aos="fade-up" data-aos-delay="150">
+        <div class="msg-head">
+          <img src="{% static 'sir.jpg' %}" alt="Principal" />
+          <h2>Principal Message</h2>
+        </div>
+        <i class="fa-solid fa-quote-right msg-quote"></i>
         <p>
           "Life always begins with one step outside of our comfort zone."
           Shannon L. Alder. Life is a perennial journey of excellence, infused
           with learning experiences. Every experience empowers the learner to be
           even more enriched with confidence. To thrive in the modern world, a
           child needs to be...
-          <br /><br /><button><a href="about">Read More...</a></button>
         </p>
-      </div>
+        <a href="{% url 'about' %}" class="btn btn-navy">Read More...</a>
+      </article>
     </div>
-    <div class="about" data-aos="fade-up" data-aos-duration="1000">
-      <div class="left">
-        <h1>Why Aryabhatta School ?</h1>
+  </section>
+
+  <!-- Why Aryabhatta -->
+  <section class="why section-white">
+    <div class="wrap why-in" data-aos="fade-up" data-aos-duration="1000">
+      <div class="why-text">
+        <h2>Why Aryabhatta School ?</h2>
         <p>
           Aryabhatta School excels in academics and holistic development. With
           innovative teaching and dedicated faculty, we prioritize critical
           thinking and character building. Our state-of-the-art facilities and
           global perspective prepare students for success in a diverse world.
         </p>
-        <button><a href="{% url 'admission' %}">Enroll</a></button>
+        <a href="{% url 'admission' %}" class="btn btn-gold">Enroll</a>
       </div>
-      <div class="right">
-        <div>
-          <span>01.</span> <br />
-          BETTER EDUCATION
-        </div>
-        <div>
-          <span>02.</span> <br />
-          PROGRAMS
-        </div>
-        <div>
-          <span>03.</span> <br />
-          STUDENT SERVICES
-        </div>
+      <div class="why-tiles">
+        <div class="tile"><i class="fa-solid fa-book-open-reader"></i><div><span>01.</span>BETTER EDUCATION</div></div>
+        <div class="tile"><i class="fa-solid fa-diagram-project"></i><div><span>02.</span>PROGRAMS</div></div>
+        <div class="tile"><i class="fa-solid fa-hands-holding-child"></i><div><span>03.</span>STUDENT SERVICES</div></div>
       </div>
     </div>
-    <div class="mission">
-      <div class="left">
-        <h1 data-aos="fade-right" data-aos-duration="1000">Our Mission</h1>
-        <p data-aos="fade-right" data-aos-duration="1000">
-          To lay the foundation of noble character of moral imtergity,
-          brotherhood, patriotism and sacrifice in the young minds so that they
-          grow straight and strong an ideal leaders who can shape destiny of the
-          nation.
-          <br /><br />
-        </p>
+  </section>
+
+  <!-- Mission -->
+  <section class="mission">
+    <span class="m-orb m-orb-1"></span>
+    <span class="m-orb m-orb-2"></span>
+    <div class="wrap mission-in">
+      <div class="mission-text" data-aos="fade-right" data-aos-duration="1000">
+        <h2>Our Mission</h2>
+        <blockquote class="mission-quote">
+          <i class="fa-solid fa-quote-left"></i>
+          <p>
+            To lay the foundation of noble character of moral imtergity,
+            brotherhood, patriotism and sacrifice in the young minds so that they
+            grow straight and strong an ideal leaders who can shape destiny of the
+            nation.
+          </p>
+        </blockquote>
+        <ul class="pillars">
+          <li><i class="fa-solid fa-scale-balanced"></i><span>Moral Integrity</span></li>
+          <li><i class="fa-solid fa-handshake-angle"></i><span>Brotherhood</span></li>
+          <li><i class="fa-solid fa-flag"></i><span>Patriotism</span></li>
+          <li><i class="fa-solid fa-hand-holding-heart"></i><span>Sacrifice</span></li>
+        </ul>
       </div>
-      <div class="right">
-        <img
-          src="https://cdni.iconscout.com/illustration/premium/thumb/mission-goals-4252954-3526675.png"
-          alt=""
-          data-aos="fade-right"
-          data-aos-duration="1000"
-        />
+      <div class="mission-visual" data-aos="fade-left" data-aos-duration="1000">
+        <div class="mission-glow"></div>
+        <div class="mission-frame">
+          <img
+            src="https://cdni.iconscout.com/illustration/premium/thumb/mission-goals-4252954-3526675.png"
+            alt="Our mission"
+          />
+        </div>
+        <span class="m-badge b1"><i class="fa-solid fa-bullseye"></i></span>
+        <span class="m-badge b2"><i class="fa-solid fa-flag"></i></span>
+        <span class="m-badge b3"><i class="fa-solid fa-star"></i></span>
       </div>
     </div>
-    <div class="history" data-aos="fade-uo" data-aos-duration="1000">
-      <h1>Upcoming Events</h1>
-      <table>
+  </section>
+
+  <!-- Events -->
+  <section class="events section-white section">
+    <div class="wrap" data-aos="fade-up" data-aos-duration="1000">
+      <div class="section-title"><h2>Upcoming Events</h2></div>
+      <div class="event-list">
         {% for st in stu %}
-        <tr>
-          <td>{{st.date}}<sup>th</sup></td>
-          <td>{{st.month}}</td>
-          <td><b>{{st.event}}</b></td>
-          <td>
-            <button><a href="{% url 'EventInfo' %}">Visit</a></button>
-          </td>
-        </tr>
-
+        <div class="event-row">
+          <div class="event-date">
+            <strong>{{st.date}}<sup>th</sup></strong>
+            <span>{{st.month}}</span>
+          </div>
+          <div class="event-name"><b>{{st.event}}</b></div>
+          <a href="{% url 'EventInfo' %}" class="btn btn-outline">Visit</a>
+        </div>
         {% endfor %}
-      </table>
-    </div>
-    <div class="programs" id="programs">
-      <div class="left">
-        <h1>School Activities</h1>
-        <div
-          class="owl-carousel owl-theme"
-          data-aos="fade-right"
-          data-aos-duration="3000"
-        >
-          {% for img in act %}
-          <div class="item">
-            <img src="/media/{{img.activity}}" alt="" />
-          </div>
-          {% endfor %}
-        </div>
       </div>
     </div>
-    <div class="notice" style="background-color: white">
-      <div class="left">
-        <h1>Notice</h1>
-        <marquee behavior="" direction="up" id="mark">
-          {% for note in note|slice:":3" %}
-          <img src="{% static 'new.png' %}" alt="" height="30" width="30" />
-          <b>{{note.date}}</b>
-          <p>{{note.notice}}</p>
-          {% endfor %}
-        </marquee>
-      </div>
-      <div class="right">
-        <img src="{% static 'students.jpg' %}" alt="" />
-      </div>
-    </div>
+  </section>
 
-    {% comment %} <div class="staff" data-aos="fade-up" data-aos-duration="1000">
-      <div class="staff-marquee">
-        <div class="staff-grid-container">
-          <div class="staff-item1">
-            <img src="{% static 'img4.jpeg' %}" alt="" />
-          </div>
-          <div class="staff-right-grid">
-            <div class="staff-item2">
-              <img src="{% static 'img6.jpeg' %}" alt="" />
+  <!-- Activities -->
+  <section class="programs section" id="programs">
+    <span class="p-orb p-orb-1"></span>
+    <span class="p-orb p-orb-2"></span>
+    <div class="wrap">
+      <div class="section-title"><h2>School Activities</h2></div>
+    </div>
+    <div class="activity-slider" data-aos="fade-up" data-aos-duration="1200">
+      <div class="owl-carousel owl-theme">
+        {% for img in act %}
+        <div class="item">
+          <img src="/media/{{img.activity}}" alt="School activity" loading="lazy" />
+          <span class="zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lb-close" id="lbClose" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+    <img src="" alt="School activity" id="lbImg" />
+  </div>
+
+  <!-- Notice -->
+  <section class="notice section-white section">
+    <div class="wrap notice-in">
+      <div class="notice-box" data-aos="fade-right" data-aos-duration="900">
+        <div class="notice-head">
+          <span class="bell"><i class="fa-solid fa-bell"></i></span>
+          <h2>Notice</h2>
+        </div>
+        <div class="notice-scroll" id="noticeScroll">
+          <div class="notice-track" id="noticeTrack">
+            {% for note in note|slice:":3" %}
+            <div class="notice-item">
+              <div class="notice-new"><img src="{% static 'new.png' %}" alt="" height="30" width="30" /></div>
+              <div class="notice-body">
+                <b><i class="fa-regular fa-calendar"></i>{{note.date}}</b>
+                <p>{{note.notice}}</p>
+              </div>
             </div>
-            <div class="staff-item3">
-              <img src="{% static 'img10.jpeg' %}" alt="" />
-            </div>
-            <div class="staff-item4">
-              <img src="{% static 'img1.jpeg' %}" alt="" />
-            </div>
-            <div class="staff-item5">
-              <img src="{% static 'img5.jpeg' %}" alt="" />
-            </div>
+            {% empty %}
+            <div class="notice-empty"><i class="fa-regular fa-bell"></i></div>
+            {% endfor %}
           </div>
         </div>
       </div>
-    </div> {% endcomment %}
+      <div class="notice-img" data-aos="fade-left" data-aos-duration="900">
+        <div class="ni-blob"></div>
+        <div class="ni-card">
+          <img src="{% static 'students.jpg' %}" alt="Students" loading="lazy" />
+        </div>
+        <span class="m-badge b1"><i class="fa-solid fa-bell"></i></span>
+        <span class="m-badge b3"><i class="fa-solid fa-graduation-cap"></i></span>
+      </div>
+    </div>
+  </section>
 
-    <div class="form" data-aos="fade-right" data-aos-duration="1000">
-      <div class="left">
-        <h1><img src="" alt="" />ARYABHATTA</h1>
+  <!-- Get in touch -->
+  <section class="touch" data-aos="fade-up" data-aos-duration="1000">
+    <div class="wrap touch-in">
+      <div class="touch-text">
+        <h2>ARYABHATTA</h2>
         <p>
           Join us on a journey of discovery, growth, and achievement at
           Aryabhatta Public School, where every child is valued and empowered to
           shine bright!
         </p>
       </div>
-      <div class="right">
-        <h2>Get in Touch</h2>
+      <div class="touch-form">
+        <h3>Get in Touch</h3>
         <form action="" method="POST">
           {% csrf_token %}
-          <input
-            type="text"
-            placeholder="First Name* "
-            name="f_name"
-            required
-          />
-          <input type="text" placeholder="Last Name* " name="l_name" required />
-          <br /><br />
-          <input type="email" placeholder="Email* " name="email" required />
-          <input type="number" placeholder="Phone* " name="pnum" required />
-          <br /><br />
-          <input type="submit" />
+          <div class="form-row">
+            <input type="text" placeholder="First Name* " name="f_name" required />
+            <input type="text" placeholder="Last Name* " name="l_name" required />
+          </div>
+          <div class="form-row">
+            <input type="email" placeholder="Email* " name="email" required />
+            <input type="number" placeholder="Phone* " name="pnum" required />
+          </div>
+          <input type="submit" class="btn btn-gold" />
         </form>
       </div>
     </div>
-  </div>
-  <script>
-    $(".owl-carousel").owlCarousel({
-      loop: true,
-      margin: 10,
-      nav: false,
-      responsive: {
-        0: {
-          items: 1,
-        },
-        600: {
-          items: 3,
-        },
-        1000: {
-          items: 5,
-        },
-      },
-    });
-  </script>
+  </section>
+</main>
 
-  {% endblock body %}
-</html>
+<script>
+  // Lightbox for activity images
+  (function () {
+    var box = document.getElementById("lightbox");
+    var img = document.getElementById("lbImg");
+    function close() { box.classList.remove("open"); box.setAttribute("aria-hidden", "true"); }
+    document.addEventListener("click", function (e) {
+      var item = e.target.closest(".activity-slider .item");
+      if (item) {
+        img.src = item.querySelector("img").src;
+        box.classList.add("open");
+        box.setAttribute("aria-hidden", "false");
+      } else if (e.target === box || e.target.closest("#lbClose")) {
+        close();
+      }
+    });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") close(); });
+  })();
+
+  // Auto-scroll the notice list only when it overflows
+  (function () {
+    var wrap = document.getElementById("noticeScroll");
+    var track = document.getElementById("noticeTrack");
+    if (!wrap || !track || track.scrollHeight <= wrap.clientHeight) return;
+    var h = track.scrollHeight;
+    track.innerHTML += track.innerHTML;
+    track.style.setProperty("--shift", "-" + h + "px");
+    track.style.animationDuration = Math.max(10, h / 25) + "s";
+    track.classList.add("scrolling");
+  })();
+</script>
+{% endblock body %}

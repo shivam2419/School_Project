@@ -1,73 +1,68 @@
 {% extends "base.html" %}
 {% load static %}
+{% block css %}{% static 'gallery.css' %}{% endblock css %}
+{% block title %}| SCHOOL GALLERY{% endblock title %}
 
- <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    {% block css %}{% static 'gallery.css' %}{% endblock css %}
-    <title>{% block title %}| SCHOOL GALLERY{% endblock title %}</title>
-    <style>
-
-    </style>
-  </head>
 {% block body %}
-<center><h2>Our Campus Gallery</h2></center>
+<section class="page-banner">
+  <h1>Our Campus Gallery</h1>
+</section>
 
-<div class="first">
-  <div class="left">
-    <h2>Events</h2>
-    <div class="main">
-      {% for img in inaug %}
-      <img src="/media/{{ img.inaugration }}" alt="" class="slide" />
-      {% endfor %}
+<section class="section">
+  <div class="wrap gal-grid">
+    <div class="gal-box card" data-aos="fade-up">
+      <h2>Events</h2>
+      <div class="main">
+        {% for img in inaug %}
+        <img src="/media/{{ img.inaugration }}" alt="Events" class="slide" />
+        {% endfor %}
+      </div>
+      <div class="butt">
+        <button onclick="goPrev();" aria-label="Previous">&larr;</button>
+        <button onclick="goNext();" aria-label="Next">&rarr;</button>
+      </div>
     </div>
-    <div class="butt">
-      <button onclick="goPrev();">&larr;</button>
-      <button onclick="goNext();">&rarr;</button>
+
+    <div class="gal-box card" data-aos="fade-up" data-aos-delay="100">
+      <h2>Assembly</h2>
+      <div class="main">
+        {% for img in assem %}
+        <img src="/media/{{ img.assembly }}" alt="Assembly" class="slide1" />
+        {% endfor %}
+      </div>
+      <div class="butt">
+        <button onclick="goPrev1();" aria-label="Previous">&larr;</button>
+        <button onclick="goNext1();" aria-label="Next">&rarr;</button>
+      </div>
+    </div>
+
+    <div class="gal-box card" data-aos="fade-up">
+      <h2>Functions</h2>
+      <div class="main">
+        {% for img in func %}
+        <img src="/media/{{ img.function }}" alt="Functions" class="slide2" />
+        {% endfor %}
+      </div>
+      <div class="butt">
+        <button onclick="goPrev2();" aria-label="Previous">&larr;</button>
+        <button onclick="goNext2();" aria-label="Next">&rarr;</button>
+      </div>
+    </div>
+
+    <div class="gal-box card" data-aos="fade-up" data-aos-delay="100">
+      <h2>Infrastructure</h2>
+      <div class="main">
+        {% for img in pt %}
+        <img src="/media/{{ img.PT }}" alt="Infrastructure" class="slide3" />
+        {% endfor %}
+      </div>
+      <div class="butt">
+        <button onclick="goPrev3();" aria-label="Previous">&larr;</button>
+        <button onclick="goNext3();" aria-label="Next">&rarr;</button>
+      </div>
     </div>
   </div>
-
-  <div class="right">
-    <h2>Assembly</h2>
-    <div class="main">
-      {% for img in assem %}
-      <img src="/media/{{ img.assembly }}" alt="" class="slide1" />
-      {% endfor %}
-    </div>
-    <div class="butt">
-      <button onclick="goPrev1();">&larr;</button>
-      <button onclick="goNext1();">&rarr;</button>
-    </div>
-  </div>
-</div>
-
-<div class="second">
-  <div class="left">
-    <h2>Functions</h2>
-    <div class="main">
-      {% for img in func %}
-      <img src="/media/{{ img.function }}" alt="" class="slide2" />
-      {% endfor %}
-    </div>
-    <div class="butt">
-      <button onclick="goPrev2();">&larr;</button>
-      <button onclick="goNext2();">&rarr;</button>
-    </div>
-  </div>
-
-  <div class="right">
-    <h2>Infrastructure</h2>
-    <div class="main">
-      {% for img in pt %}
-      <img src="/media/{{ img.PT }}" alt="" class="slide3" />
-      {% endfor %}
-    </div>
-    <div class="butt">
-      <button onclick="goPrev3();">&larr;</button>
-      <button onclick="goNext3();">&rarr;</button>
-    </div>
-  </div>
-</div>
+</section>
 
 <script>
   // Slide 0: Events

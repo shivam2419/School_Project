@@ -4,152 +4,72 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <!-- Google Icons -->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-    />
-    
+    <meta name="robots" content="noindex, nofollow" />
     <title>ADMIN {% block title %}{% endblock title %}</title>
-    
-    <!-- External CSS from child templates -->
-    <link rel="stylesheet" href="{% block css %}{% endblock css %}" />
-    
-    <style>
-      /* Sidebar Styles */
-      .sidebar {
-        height: 100%;
-        width: 0;
-        position: fixed;
-        z-index: 1;
-        top: 0;
-        left: 0;
-        background-color: rgb(27, 0, 100);
-        overflow-x: hidden;
-        padding-top: 60px;
-        transition: 0.5s;
-      }
-
-      .sidebar h3 {
-        padding: 10px;
-        background-color: white;
-        color: rgb(27, 0, 100);
-        font-size: 22px;
-        font-family: "Roboto", sans-serif;
-      }
-
-      .sidebar a {
-        padding: 8px 20px;
-        text-decoration: none;
-        font-size: 20px;
-        color: white;
-        display: block;
-        transition: 0.3s;
-        font-family: Arial, Helvetica, sans-serif;
-        border-radius: 5px;
-        margin: 10px;
-      }
-
-      .sidebar a:hover {
-        background-color: rgb(156, 102, 0);
-      }
-
-      .sidebar a:last-child {
-        background-color: rgb(255, 65, 65);
-      }
-
-      .closebtn {
-        position: absolute;
-        top: 0;
-        right: 10px;
-        font-size: 70px;
-        font-weight: bolder;
-      }
-
-      /* Open Sidebar Button */
-      .openbtn {
-        font-size: 30px;
-        cursor: pointer;
-        color: black;
-        background-color: white;
-        border: none;
-        padding: 8px 12px;
-        font-weight: bold;
-        margin: 10px;
-      }
-
-      .openbtn:hover {
-        background-color: #ddd;
-      }
-
-      /* Main Content */
-      #main {
-        transition: margin-left 0.5s;
-        padding: 20px;
-        text-align: center;
-      }
-
-      /* Header / Logo */
-      #head img {
-        display: block;
-        margin: 0 auto;
-      }
-
-      @media screen and (max-width: 690px) {
-        #head img {
-          height: 80px;
-          width: 80px;
-        }
-      }
-    </style>
+    <link rel="icon" href="{% static 'logo.png' %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.3.0/css/all.css" />
+    <link rel="stylesheet" href="{% static 'adminbase.css' %}" />
   </head>
 
   <body>
-    <!-- Header -->
-    <div class="header">
-      <button class="openbtn" onclick="openNav()">&#9776;</button>
-    </div>
-
+    {% with page=request.resolver_match.url_name %}
     <!-- Sidebar -->
-    <div id="mySidebar" class="sidebar">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-      <a href="{% url 'adminDashboard' %}">Home</a>
-      <a href="{% url 'enquiry' %}">Registrations</a>
-      <a href="{% url 'Activities' %}">Home Images</a>
-      <a href="{% url 'Events' %}">Events</a>
-      <a href="{% url 'Notice' %}">Notice</a>
-      <a href="{% url 'School_gallery' %}">School gallery</a>
-      <a href="{% url 'ContactInfo' %}">Contact Data</a>
-      <a href="api?format=json" download="api.json">Api data</a>
-      <a href="{% url 'logout' %}">Logout</a>
-    </div>
+    <aside id="mySidebar" class="sidebar">
+      <a href="{% url 'adminDashboard' %}" class="side-brand">
+        <img src="{% static 'logo.png' %}" alt="logo" />
+        <span><strong>ARYABHATTA</strong><small>Admin</small></span>
+      </a>
+      <button class="closebtn" onclick="closeNav()" aria-label="Close menu">&times;</button>
+
+      <nav class="side-nav">
+        <a href="{% url 'adminDashboard' %}" class="{% if page == 'adminDashboard' %}active{% endif %}"><i class="fa-solid fa-house"></i>Home</a>
+        <a href="{% url 'enquiry' %}" class="{% if page == 'enquiry' or page == 'Enquiry' %}active{% endif %}"><i class="fa-solid fa-clipboard-list"></i>Registrations</a>
+        <a href="{% url 'Activities' %}" class="{% if page == 'Activities' or page == 'deleteActivities' %}active{% endif %}"><i class="fa-regular fa-images"></i>Home Images</a>
+        <a href="{% url 'Events' %}" class="{% if page == 'Events' or page == 'deleteEvent' %}active{% endif %}"><i class="fa-regular fa-calendar-days"></i>Events</a>
+        <a href="{% url 'Notice' %}" class="{% if page == 'Notice' or page == 'deleteNotice' %}active{% endif %}"><i class="fa-solid fa-bullhorn"></i>Notice</a>
+        <a href="{% url 'School_gallery' %}" class="{% if page == 'School_gallery' or page == 'addInaugration' or page == 'addAssembly' or page == 'addFunction' or page == 'addPt' or page == 'deleteGallery' %}active{% endif %}"><i class="fa-solid fa-photo-film"></i>School gallery</a>
+        <a href="{% url 'ContactInfo' %}" class="{% if page == 'ContactInfo' or page == 'deleteContact' %}active{% endif %}"><i class="fa-solid fa-address-book"></i>Contact Data</a>
+        <a href="{% url 'api' %}?format=json" download="api.json"><i class="fa-solid fa-code"></i>Api data</a>
+        <a href="{% url 'logout' %}" class="logout"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>
+      </nav>
+    </aside>
+    <div class="backdrop" id="backdrop" onclick="closeNav()"></div>
 
     <!-- Main Page Content -->
     <div id="main">
-      <!-- Logo and Info -->
-      <div id="head" style="font-family: Roboto, sans-serif;">
-        <img src="{% static 'logo.jpg' %}" alt="logo" class="logo-default" height="150" width="150" />
-        <br />
-        <b>Kher Nawada, Gadi Jahan Singh Road, Shamshabad, Agra-283125</b><br />
-        <b>Phone No: 7017217471, 9027279413</b><br />
-        <b>Email Id: aryabhattapublicedu@gmail.com</b><br />
-      </div>
+      <header class="topbar">
+        <button class="openbtn" onclick="openNav()" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+        <div class="school-info" id="head">
+          <img src="{% static 'logo.jpg' %}" alt="logo" class="logo-default" />
+          <div>
+            <b>Kher Nawada, Gadi Jahan Singh Road, Shamshabad, Agra-283125</b>
+            <b>Phone No: 7017217471, 9027279413</b>
+            <b>Email Id: aryabhattapublicedu@gmail.com</b>
+          </div>
+        </div>
+      </header>
 
       <!-- Block for individual pages -->
-      {% block body %}{% endblock body %}
+      <section class="content">
+        {% block body %}{% endblock body %}
+      </section>
     </div>
+    {% endwith %}
 
-    <!-- Sidebar JS -->
     <script>
       function openNav() {
-        document.getElementById("mySidebar").style.width = "250px";
-        document.getElementById("main").style.marginLeft = "250px";
+        document.getElementById("mySidebar").classList.add("open");
+        document.getElementById("backdrop").classList.add("show");
       }
-
       function closeNav() {
-        document.getElementById("mySidebar").style.width = "0";
-        document.getElementById("main").style.marginLeft = "0";
+        document.getElementById("mySidebar").classList.remove("open");
+        document.getElementById("backdrop").classList.remove("show");
       }
     </script>
   </body>

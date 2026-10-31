@@ -1,33 +1,35 @@
-{% extends "admin/adminbase.html" %} {% load static %} {% block title %}|
-Enquiry Dashboard{% endblock title %} {% block css %}{% static "admin_dashboard.css" %}{% endblock css %} {% block body %}
+{% extends "admin/adminbase.html" %}
+{% load static %}
+{% block title %}| Enquiry Dashboard{% endblock title %}
+
+{% block body %}
 <div class="admin-container">
-  <h1>REGISTRATIONS :</h1>
-  <div class="table-wrapper">
+  <div class="page-head"><h1>REGISTRATIONS :</h1></div>
+  <div class="table-wrap">
     <table>
-      <tr>
-        <th>S.No</th>
-        <th>Name</th>
-        <th>Phone number</th>
-        <th>Email id</th>
-        <th>Std.</th>
-        <th>Status</th>
-      </tr>
-      {% for item in items %}
-      <tr>
-        <td>{{ forloop.counter }}.</td>
-        <td>{{ item.student_name }}</td>
-        <td>{{ item.phone_number }}</td>
-        <td>{{ item.email_id }}</td>
-        <td>{{ item.class_for }}</td>
-        <td>
-          <button>
-            <a href="enquiry_info/{{ item.id }}">Check</a>
-          </button>
-        </td>
-      </tr>
-      {% endfor %}
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Name</th>
+          <th>Phone number</th>
+          <th>Email id</th>
+          <th>Std.</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in items %}
+        <tr>
+          <td>{{ forloop.counter }}.</td>
+          <td>{{ item.student_name }}</td>
+          <td>{{ item.phone_number }}</td>
+          <td>{{ item.email_id }}</td>
+          <td>{{ item.class_for }}</td>
+          <td><a class="btn btn-primary btn-sm" href="{% url 'Enquiry' item.id %}">Check</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
     </table>
   </div>
 </div>
-
 {% endblock body %}

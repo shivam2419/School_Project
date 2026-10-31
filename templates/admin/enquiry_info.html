@@ -1,129 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta charset="UTF-8" />
-    <title>Student Enquiry Info</title>
-    <style>
-      body {
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f4f4f4;
-      }
+{% extends "admin/adminbase.html" %}
+{% load static %}
+{% block title %}| Student Enquiry Info{% endblock title %}
 
-      .container {
-        display: flex;
-        justify-content: center;
-        padding: 30px 20px;
-      }
-
-      .card {
-        background: #fff;
-        border-radius: 10px;
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-        width: 100%;
-        max-width: 400px;
-        overflow: hidden;
-      }
-
-      .card img {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-      }
-
-      .card-content {
-        padding: 20px;
-      }
-
-      .card-content h2 {
-        margin-top: 0;
-        font-size: 24px;
-        color: #333;
-        margin-bottom: 10px;
-      }
-
-      .info-row {
-        margin: 12px 0;
-        color: #444;
-      }
-
-      .info-row b {
-        color: #000;
-      }
-
-      form button {
-        width: 100%;
-        padding: 12px;
-        background-color: #e60023;
-        color: white;
-        font-size: 16px;
-        font-weight: bold;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: 0.2s ease-in-out;
-      }
-
-      form button:hover {
-        background-color: #cc001f;
-        transform: scale(1.02);
-      }
-
-      @media (max-width: 500px) {
-        .card-content h2 {
-          font-size: 20px;
-        }
-
-        .info-row {
-          font-size: 14px;
-        }
-
-        form button {
-          font-size: 14px;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <div class="card">
-        {% if items.gender == 'M' %}
-        <img
-          src="https://www.w3schools.com/howto/img_avatar.png"
-          alt="Male Avatar"
-        />
-        {% else %}
-        <img
-          src="https://www.w3schools.com/howto/img_avatar2.png"
-          alt="Female Avatar"
-        />
-        {% endif %}
-
-        <div class="card-content">
-          <h2>{{ items.student_name }}</h2>
-
-          <div class="info-row"><b>Phone:</b> {{ items.phone_number }}</div>
-          <div class="info-row"><b>Email:</b> {{ items.email_id }}</div>
-          <div class="info-row"><b>Class:</b> {{ items.class_for }}</div>
-          <div class="info-row"><b>Address:</b> {{ items.address }}</div>
-          <div class="info-row">
-            <b>Transport Required:</b> {{ items.trans_req }}
-          </div>
-
-          <form method="POST">
-            {% csrf_token %}
-            <button type="submit" onclick="deleteEnquiry()"><a id="delete-enquiry-btn">Delete Entry</a></button>
-          </form>
-        </div>
-      </div>
+{% block body %}
+<div class="container">
+  <div class="card panel detail">
+    <div class="detail-top">
+      <h2>{{ items.student_name }}</h2>
     </div>
-    <script>
-      function deleteEnquiry() {
-        let enquiryBtn = document.getElementById('delete-enquiry-btn');
-        enquiryBtn.innerText = "Deleting...";
-      }
-    </script>
-  </body>
-</html>
+    {% if items.gender == 'M' %}
+    <img class="avatar" src="https://www.w3schools.com/howto/img_avatar.png" alt="Male Avatar" />
+    {% else %}
+    <img class="avatar" src="https://www.w3schools.com/howto/img_avatar2.png" alt="Female Avatar" />
+    {% endif %}
+
+    <div class="card-content detail-body">
+      <div class="info-row"><b>Phone:</b> <span>{{ items.phone_number }}</span></div>
+      <div class="info-row"><b>Email:</b> <span>{{ items.email_id }}</span></div>
+      <div class="info-row"><b>Class:</b> <span>{{ items.class_for }}</span></div>
+      <div class="info-row"><b>Address:</b> <span>{{ items.address }}</span></div>
+      <div class="info-row"><b>Transport Required:</b> <span>{{ items.trans_req }}</span></div>
+
+      <form method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-solid-danger" onclick="deleteEnquiry()"><i class="fa-regular fa-trash-can"></i><span id="delete-enquiry-btn">Delete Entry</span></button>
+      </form>
+    </div>
+  </div>
+</div>
+<script>
+  function deleteEnquiry() {
+    let enquiryBtn = document.getElementById('delete-enquiry-btn');
+    enquiryBtn.innerText = "Deleting...";
+  }
+</script>
+{% endblock body %}

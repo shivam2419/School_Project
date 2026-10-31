@@ -1,139 +1,95 @@
-{% extends "base.html" %} {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    {% block css %}static/about.css{% endblock css %}
-    {% block meta_description %}Learn more about Aryabhatta Public School, our mission, values, faculty, and our commitment to educational excellence.{% endblock %}
-    <title>{% block title %}| About us{% endblock title %}</title>
-  </head>
-  {% block body %}
-  <div class="container">
-    <h2 style="background-color: rgb(11, 80, 145); color: white; border: none">
-      About Us
-    </h2>
-    <div class="panel-body">
-      <div>
-        <div id="ContentPanel" class="c1">
-          <p style="text-align: justify">
-            <span style="font-size: 12px"
-              ><span style="color: #b22222"
-                ><span style="font-size: 14px"
-                  ><strong>Our Antecedents</strong></span
-                ></span
-              ><br />
-              Aryabhatta Public School, Shamshabad, Agra - schools
-              are run by Dr. Ravi Kant Pachauri on the principles of
-              ‘Dispelling Ignorance and Promoting Knowledge’ propounded by Arya
-              Samaj.</span
-            >
-          </p>
+{% extends "base.html" %}
+{% load static %}
+{% block css %}{% static 'about.css' %}{% endblock css %}
+{% block meta_description %}Learn more about Aryabhatta Public School, our mission, values, faculty, and our commitment to educational excellence.{% endblock %}
+{% block title %}| About us{% endblock title %}
 
-          <p style="text-align: justify">
-            <span style="font-size: 12px"
-              >Aryabhatta Public School, Shamshabad, Agra. Since its provenience
-              in 2023, has been diligently pursuing the path of education of
-              three H’s – Head, Heart and Hand. The school assimilates Modern
-              education of ‘Tech Shapers’ with the Vedic injunction of ‘Manur
-              Bhav’.</span
-            >
-          </p>
-          <br /><br />
-          <p style="text-align: justify">
-            <span style="font-size: 12px"
-              ><span style="color: #b22222"
-                ><span style="font-size: 14px"
-                  ><strong>Our Present</strong></span
-                ></span
-              ><br />
-              With more than 5,00 students on roll from class Nursery to X.The school endeavours to inspire the students
-              to be vigorous learners, vibrant thinkers and vivacious members of
-              the globalized world of </span
-            ><span style="font-size: 12px">21st</span
-            ><span style="font-size: 12px">
-              century. </span
-            ><span style="font-size: 12px">..</span>
-          </p>
-          <br /><br />
-          <p style="text-align: justify">
-            <span style="font-size: 12px"
-              ><strong
-                ><span style="font-size: 14px"
-                  ><span style="color: #b22222">Our Infrastructure</span></span
-                ></strong
-              ><br />
-              The school proudly possesses state–of–the–art infrastructure
-              inclusive of Smart Classrooms, spacious Libraries for different
-              wings, extensively established Computer Labs for the budding</span
-            ><span style="font-size: 12px">techno – savvy</span
-            ><span style="font-size: 12px">
-              generations, fully – equipped Science labs, </span
-            ><span style="font-size: 12px">hi – tech</span
-            ><span style="font-size: 12px">
-              Conference Halls and vast and recreational play grounds producing
-              National Level Sportspersons.</span
-            >
-          </p>
-          <br /><br />
-          <p style="text-align: justify">
-            <span style="font-size: 12px"
-              ><span style="color: #b22222"
-                ><span style="font-size: 14px"
-                  ><strong>Our Results</strong></span
-                ></span
-              ><br />
-              Every year students possessing sterling qualities of head and
-              heart move out and pursue concrete career trajectories.</span
-            >
-          </p>
-      
-          <br /><br />
-          <p style="text-align: justify">
-            <span style="font-size: 12px"
-              ><span style="color: #b22222"
-                ><span style="font-size: 14px"
-                  ><strong>Our Activities</strong></span
-                ></span
-              ><br />
-              Focussing on the holistic development of the child, the school
-              provides extensive opportunities to the students through</span
-            ><span style="font-size: 12px">inter–house</span
-            ><span style="font-size: 12px">
-              competitions, class–shows, trips &amp; excursions, workshops and
-              seminars. Through these rigorous and stimulating programmes,
-              together with special support strategies, the school aims to raise
-              the literary skills of the students to the required levels so that
-              they grow into compassionate and dynamic global citizens.</span
-            >
-          </p>
-        </div>
-      </div>
-    </div>
-    <br /><br />
-    <h2 style="background-color: rgb(11, 80, 145); color: white; border: none">
-      President's Message
-    </h2>
+{% block body %}
+<section class="page-banner">
+  <h1>About Us</h1>
+</section>
 
-    <div id="ContentPanel" class="c2">
-      <p style="text-align: justify">
-        <span style="font-size: 12px"
-          ><img
-            alt=""
-            src="{% static 'president.jpeg' %}"
-            style="
-              float: left;
-              height: 230px;
-              margin-left: 4px;
-              margin-right: 40px;
-              width: 177px;
-              margin-bottom: 1px;
-            "
-          /><strong>A dream comes true - </strong></span
-        >
+<section class="section">
+  <div class="wrap about-grid">
+    <article class="about-card card" data-aos="fade-up">
+      <div class="about-icon"><i class="fa-solid fa-monument"></i></div>
+      <h2>Our Antecedents</h2>
+      <p>
+        Aryabhatta Public School, Shamshabad, Agra - schools
+        are run by Dr. Ravi Kant Pachauri on the principles of
+        ‘Dispelling Ignorance and Promoting Knowledge’ propounded by Arya
+        Samaj.
       </p>
+      <p>
+        Aryabhatta Public School, Shamshabad, Agra. Since its provenience
+        in 2023, has been diligently pursuing the path of education of
+        three H’s – Head, Heart and Hand. The school assimilates Modern
+        education of ‘Tech Shapers’ with the Vedic injunction of ‘Manur
+        Bhav’.
+      </p>
+    </article>
 
-      <p style="text-align: justify">
-        <span style="font-size: 12px"
-          >A dream of social commitment and responsibility. I look forward for
+    <article class="about-card card" data-aos="fade-up" data-aos-delay="100">
+      <div class="about-icon"><i class="fa-solid fa-user-graduate"></i></div>
+      <h2>Our Present</h2>
+      <p>
+        With more than 5,00 students on roll from class Nursery to X.The school endeavours to inspire the students
+        to be vigorous learners, vibrant thinkers and vivacious members of
+        the globalized world of 21st century. ..
+      </p>
+    </article>
+
+    <article class="about-card card" data-aos="fade-up">
+      <div class="about-icon"><i class="fa-solid fa-building-columns"></i></div>
+      <h2>Our Infrastructure</h2>
+      <p>
+        The school proudly possesses state–of–the–art infrastructure
+        inclusive of Smart Classrooms, spacious Libraries for different
+        wings, extensively established Computer Labs for the budding
+        techno – savvy
+        generations, fully – equipped Science labs, hi – tech
+        Conference Halls and vast and recreational play grounds producing
+        National Level Sportspersons.
+      </p>
+    </article>
+
+    <article class="about-card card" data-aos="fade-up" data-aos-delay="100">
+      <div class="about-icon"><i class="fa-solid fa-trophy"></i></div>
+      <h2>Our Results</h2>
+      <p>
+        Every year students possessing sterling qualities of head and
+        heart move out and pursue concrete career trajectories.
+      </p>
+    </article>
+
+    <article class="about-card about-wide card" data-aos="fade-up">
+      <div class="about-icon"><i class="fa-solid fa-people-group"></i></div>
+      <h2>Our Activities</h2>
+      <p>
+        Focussing on the holistic development of the child, the school
+        provides extensive opportunities to the students through
+        inter–house
+        competitions, class–shows, trips &amp; excursions, workshops and
+        seminars. Through these rigorous and stimulating programmes,
+        together with special support strategies, the school aims to raise
+        the literary skills of the students to the required levels so that
+        they grow into compassionate and dynamic global citizens.
+      </p>
+    </article>
+  </div>
+</section>
+
+<section class="section-white section">
+  <div class="wrap">
+    <div class="section-title"><h2>President's Message</h2></div>
+    <div class="person card" data-aos="fade-up">
+      <div class="person-photo">
+        <img alt="President" src="{% static 'president.jpeg' %}" />
+      </div>
+      <div class="person-text">
+        <h3>A dream comes true - </h3>
+        <p>
+          A dream of social commitment and responsibility. I look forward for
           the great development of technology and the ways by which the younger
           generation obtains it.<br />
           I will be delighted to see my endeavors - Indian Era Sr. Secondary
@@ -145,51 +101,31 @@
           them to have an nternational outlook with the modern perspectives of
           education and the changes in the world around us. Aryabhatta Public
           School is extending the message of social commitment with the
-          cooperation of the learned citizens. <br /><br /><br><br>
-      </p>
-
-      <p style="text-align: ">
-        <span style="color: #b22222"
-          ><span style="font-size: 14px"><strong>Mr.</strong></span></span
-        >
-        <span style="color: #b22222"
-          ><span style="font-size: 14px">
-            <strong
-              >Hari Prakash Sharma<br />
-              President</strong
-            ></span
-          ></span
-        >
-      </p>
+          cooperation of the learned citizens.
+        </p>
+        <p class="person-name">
+          Mr. Hari Prakash Sharma<br />
+          <span>President</span>
+        </p>
+      </div>
     </div>
-    <br /><br />
-    <h2 style="background-color: rgb(11, 80, 145); color: white; border: none">
-      Principal's Message
-    </h2>
-    <div id="ContentPanel" class="c2">
-      <p style="text-align: justify">
-        <span style="font-size: 12px"
-          ><img
-            alt=""
-            src="{% static 'sir.jpg' %}"
-            style="
-              float: left;
-              height: 230px;
-              margin-left: 4px;
-              margin-right: 40px;
-              width: 177px;
-              margin-bottom: 1px;
-            "
-          /><strong
-            >"Life always begins with one step outside of our comfort zone." -
-            Shannon L. Alder.
-          </strong></span
-        >
-      </p>
+  </div>
+</section>
 
-      <p style="text-align: justify">
-        <span style="font-size: 12px"
-          >Life is a perennial journey of excellence, infused with learning
+<section class="section">
+  <div class="wrap">
+    <div class="section-title"><h2>Principal's Message</h2></div>
+    <div class="person card" data-aos="fade-up">
+      <div class="person-photo">
+        <img alt="Principal" src="{% static 'sir.jpg' %}" />
+      </div>
+      <div class="person-text">
+        <h3>
+          "Life always begins with one step outside of our comfort zone." -
+          Shannon L. Alder.
+        </h3>
+        <p>
+          Life is a perennial journey of excellence, infused with learning
           experiences. Every experience empowers the learner to be even more
           enriched with confidence. To thrive in the modern world, a child needs
           to be equipped with divergent thinking, creative ideas and inspired
@@ -207,27 +143,15 @@
           requirement of the hi-tech world). If we value the self-esteem of our
           children and ask for their co-operation in each and every field, they
           will feel confident and will be geared up to face the world with an
-          open mind, to </span
-        ><span style="font-size: 12px">materialized</span
-        ><span style="font-size: 12px">
-          their dreams and stand victorious in the odyssey of life.</span
-        >
-      </p>
-
-      <p style="text-align: ">
-        <span style="color: #b22222"
-          ><span style="font-size: 14px"><strong>Mr.</strong></span></span
-        ><span style="color: #b22222"
-          ><span style="font-size: 14px">
-            <strong
-              >Ravi Kant Pachauri<br />
-              Principal</strong
-            ></span
-          ></span
-        >
-      </p>
+          open mind, to materialized
+          their dreams and stand victorious in the odyssey of life.
+        </p>
+        <p class="person-name">
+          Mr. Ravi Kant Pachauri<br />
+          <span>Principal</span>
+        </p>
+      </div>
     </div>
   </div>
-
-  {% endblock body %}
-</html>
+</section>
+{% endblock body %}

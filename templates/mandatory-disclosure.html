@@ -1,193 +1,127 @@
-{% extends "base.html" %} {% load static %}
+{% extends "base.html" %}
+{% load static %}
+{% block css %}{% static 'service.css' %}{% endblock css %}
+{% block title %}Mandatory Disclosure{% endblock title %}
 
-<!doctype html>
-<html lang="en">
-  <head>
-    {% block css %}static/service.css{% endblock css %}
-    <title>{% block title %}Mandatory Disclosure{% endblock title %}</title>
-  </head>
+{% block body %}
+<center>
+  <div class="head">
+    <span id="one">Mandatory</span>
+    &nbsp;
+    <span id="two">Disclosure</span>
+  </div>
+</center>
 
-  <body>
-    {% block body %}
+<div class="main main-docs">
+  <div class="card-1">
+    <h2 class="doc-title"><i class="fa-regular fa-file-lines"></i>Recognition Certificate</h2>
+    <p>Government issued recognition certificate of the school.</p>
+    <a class="card-btn" href="{% static 'recognition_certificate.pdf' %}" target="_blank">View</a>
+  </div>
 
-    <center>
-      <div class="head">
-        <span id="one">Mandatory</span>
-        &nbsp;
-        <span id="two">Disclosure</span>
-      </div>
-    </center>
+  <div class="card-1">
+    <h2 class="doc-title"><i class="fa-regular fa-file-lines"></i>Fire Safety Certificate</h2>
+    <p>Fire safety compliance certificate issued by competent authority.</p>
+    <a class="card-btn" href="{% static 'fire_safety.pdf' %}" target="_blank">View</a>
+  </div>
 
-    <div class="main">
-      <div class="card-1">
-        <h2 class="doc-title">📄 Recognition Certificate</h2>
-        <p>Government issued recognition certificate of the school.</p>
-        <button>
-          <a href="{% static 'recognition_certificate.pdf' %}" target="_blank"
-            >View</a
-          >
-        </button>
-      </div>
+  <div class="card-1">
+    <h2 class="doc-title"><i class="fa-regular fa-file-lines"></i>Water Safety Certificate</h2>
+    <p>Certificate confirming safe drinking water facilities.</p>
+    <a class="card-btn" href="{% static 'water_safety.pdf' %}" target="_blank">View</a>
+  </div>
 
-      <div class="card-1">
-        <h2 class="doc-title">📄 Fire Safety Certificate</h2>
-        <p>Fire safety compliance certificate issued by competent authority.</p>
-        <button>
-          <a href="{% static 'fire_safety.pdf' %}" target="_blank">View</a>
-        </button>
-      </div>
+  <div class="card-1">
+    <h2 class="doc-title"><i class="fa-regular fa-file-lines"></i>Building Safety Certificate</h2>
+    <p>Structural safety certificate of the school building.</p>
+    <a class="card-btn" href="{% static 'building_safety.pdf' %}" target="_blank">View</a>
+  </div>
 
-      <div class="card-1">
-        <h2 class="doc-title">📄 Water Safety Certificate</h2>
-        <p>Certificate confirming safe drinking water facilities.</p>
-        <button>
-          <a href="{% static 'water_safety.pdf' %}" target="_blank">View</a>
-        </button>
-      </div>
-    </div>
+  <div class="card-1">
+    <h2 class="doc-title"><i class="fa-regular fa-file-lines"></i>UDISE</h2>
+    <p>Unified District Information System for Education details.</p>
+    <a class="card-btn" href="{% static 'udise.pdf' %}" target="_blank">View</a>
+  </div>
 
-    <div class="main">
-      <div class="card-1">
-        <h2 class="doc-title">📄 Building Safety Certificate</h2>
-        <p>Structural safety certificate of the school building.</p>
-        <button>
-          <a href="{% static 'building_safety.pdf' %}" target="_blank">View</a>
-        </button>
-      </div>
+  <div class="card-1">
+    <h2 class="doc-title"><i class="fa-regular fa-file-lines"></i>POSCO Committee</h2>
+    <p>Committee details as per POSCO Act guidelines.</p>
+    <a class="card-btn" href="{% static 'posco_committee.pdf' %}" target="_blank">View</a>
+  </div>
 
-      <div class="card-1">
-        <h2 class="doc-title">📄 UDISE</h2>
-        <p>Unified District Information System for Education details.</p>
-        <button>
-          <a href="{% static 'udise.pdf' %}" target="_blank">View</a>
-        </button>
-      </div>
+  <div class="card-1">
+    <h2 class="doc-title"><i class="fa-regular fa-file-lines"></i>Sexual Harassment Committee</h2>
+    <p>Internal committee details for prevention of harassment.</p>
+    <a class="card-btn" href="{% static 'sexual_harassment.pdf' %}" target="_blank">View</a>
+  </div>
 
-      <div class="card-1">
-        <h2 class="doc-title">📄 POSCO Committee</h2>
-        <p>Committee details as per POSCO Act guidelines.</p>
-        <button>
-          <a href="{% static 'posco_committee.pdf' %}" target="_blank">View</a>
-        </button>
-      </div>
-    </div>
+  <div class="card-1">
+    <h2 class="doc-title"><i class="fa-regular fa-file-lines"></i>Fee Structure</h2>
+    <p>Approved fee structure for all classes.</p>
+    <a class="card-btn" href="{% static 'fee_structure.pdf' %}" target="_blank">View</a>
+  </div>
 
-    <div class="main">
-      <div class="card-1">
-        <h2 class="doc-title">📄 Sexual Harassment Committee</h2>
-        <p>Internal committee details for prevention of harassment.</p>
-        <button>
-          <a href="{% static 'sexual_harassment.pdf' %}" target="_blank"
-            >View</a
-          >
-        </button>
-      </div>
+  <div class="card-1">
+    <h2 class="doc-title"><i class="fa-regular fa-file-lines"></i>Holiday List</h2>
+    <p>List of holidays for the current academic session.</p>
+    <a class="card-btn" href="{% static 'holiday_list.pdf' %}" target="_blank">View</a>
+  </div>
 
-      <div class="card-1">
-        <h2 class="doc-title">📄 Fee Structure</h2>
-        <p>Approved fee structure for all classes.</p>
-        <button>
-          <a href="{% static 'fee_structure.pdf' %}" target="_blank">View</a>
-        </button>
-      </div>
+  <div class="card-1">
+    <h2 class="doc-title"><i class="fa-regular fa-file-lines"></i>Co-curricular Activities</h2>
+    <p>Details of co-curricular and other student activities.</p>
+    <a class="card-btn" href="{% static 'co_curricular.pdf' %}" target="_blank">View</a>
+  </div>
 
-      <div class="card-1">
-        <h2 class="doc-title">📄 Holiday List</h2>
-        <p>List of holidays for the current academic session.</p>
-        <button>
-          <a href="{% static 'holiday_list.pdf' %}" target="_blank">View</a>
-        </button>
-      </div>
-    </div>
+  <div class="card-1">
+    <h2 class="doc-title"><i class="fa-regular fa-file-lines"></i>Academic Calendar</h2>
+    <p>Academic calendar with exams, events and holidays.</p>
+    <a class="card-btn" href="{% static 'academic_calendar.pdf' %}" target="_blank">View</a>
+  </div>
 
-    <div class="main">
-      <div class="card-1">
-        <h2 class="doc-title">📄 Co-curricular Activities</h2>
-        <p>Details of co-curricular and other student activities.</p>
-        <button>
-          <a href="{% static 'co_curricular.pdf' %}" target="_blank">View</a>
-        </button>
-      </div>
+  <div class="card-1">
+    <h2 class="doc-title"><i class="fa-regular fa-file-lines"></i>School Management Committee (SMC)</h2>
+    <p>Details of School Management Committee members.</p>
+    <a class="card-btn" href="{% static 'smc.pdf' %}" target="_blank">View</a>
+  </div>
 
-      <div class="card-1">
-        <h2 class="doc-title">📄 Academic Calendar</h2>
-        <p>Academic calendar with exams, events and holidays.</p>
-        <button>
-          <a href="{% static 'academic_calendar.pdf' %}" target="_blank"
-            >View</a
-          >
-        </button>
-      </div>
+  <div class="card-1">
+    <h2 class="doc-title"><i class="fa-regular fa-file-lines"></i>Affidavit</h2>
+    <p>Affidavit submitted as per mandatory disclosure norms.</p>
+    <a class="card-btn" href="{% static 'affidavit.pdf' %}" target="_blank">View</a>
+  </div>
 
-      <div class="card-1">
-        <h2 class="doc-title">📄 School Management Committee (SMC)</h2>
-        <p>Details of School Management Committee members.</p>
-        <button>
-          <a href="{% static 'smc.pdf' %}" target="_blank">View</a>
-        </button>
-      </div>
-    </div>
-    <div class="main">
-      <div class="card-1">
-        <h2 class="doc-title">📄 Affidavit</h2>
-        <p>Affidavit submitted as per mandatory disclosure norms.</p>
-        <button>
-          <a href="{% static 'affidavit.pdf' %}" target="_blank">View</a>
-        </button>
-      </div>
+  <div class="card-1">
+    <h2 class="doc-title"><i class="fa-regular fa-file-lines"></i>Affidavit 2</h2>
+    <p>Additional affidavit as required by the authority.</p>
+    <a class="card-btn" href="{% static 'affidavit2.pdf' %}" target="_blank">View</a>
+  </div>
 
-      <div class="card-1">
-        <h2 class="doc-title">📄 Affidavit 2</h2>
-        <p>Additional affidavit as required by the authority.</p>
-        <button>
-          <a href="{% static 'affidavit2.pdf' %}" target="_blank">View</a>
-        </button>
-      </div>
+  <div class="card-1">
+    <h2 class="doc-title"><i class="fa-regular fa-file-lines"></i>Trust Deed</h2>
+    <p>Trust registration and legal ownership document.</p>
+    <a class="card-btn" href="{% static 'trust.pdf' %}" target="_blank">View</a>
+  </div>
 
-      <div class="card-1">
-        <h2 class="doc-title">📄 Trust Deed</h2>
-        <p>Trust registration and legal ownership document.</p>
-        <button>
-          <a href="{% static 'trust.pdf' %}" target="_blank">View</a>
-        </button>
-      </div>
-    </div>
+  <div class="card-1">
+    <h2 class="doc-title"><i class="fa-regular fa-file-lines"></i>General Information</h2>
+    <p>
+      General information related to school infrastructure and
+      administration.
+    </p>
+    <a class="card-btn" href="{% static 'general_information.pdf' %}" target="_blank">View</a>
+  </div>
 
-    <div class="main">
-      <div class="card-1">
-        <h2 class="doc-title">📄 General Information</h2>
-        <p>
-          General information related to school infrastructure and
-          administration.
-        </p>
-        <button>
-          <a href="{% static 'general_information.pdf' %}" target="_blank"
-            >View</a
-          >
-        </button>
-      </div>
-      <div class="card-1">
-        <h2 class="doc-title">📄 Youtube Video</h2>
-        <p>Get a glance of Aryabhatta Public School</p>
-        <button>
-          <a
-            href="https://www.youtube.com/watch?feature=shared&v=HmNFSatsjqk"
-            target="_blank"
-            >Watch</a
-          >
-        </button>
-      </div>
-       <div class="card-1">
-        <h2 class="doc-title">📄 Previous Year Report-Card</h2>
-        <p>Know the ouput structure of students</p>
-        <button>
-          <a href="{% static 'report-card.pdf' %}" target="_blank"
-            >View</a
-          >
-        </button>
-      </div>
-    </div>
+  <div class="card-1">
+    <h2 class="doc-title"><i class="fa-brands fa-youtube"></i>Youtube Video</h2>
+    <p>Get a glance of Aryabhatta Public School</p>
+    <a class="card-btn" href="https://www.youtube.com/watch?feature=shared&v=HmNFSatsjqk" target="_blank">Watch</a>
+  </div>
 
-    {% endblock body %}
-  </body>
-</html>
+  <div class="card-1">
+    <h2 class="doc-title"><i class="fa-regular fa-file-lines"></i>Previous Year Report-Card</h2>
+    <p>Know the ouput structure of students</p>
+    <a class="card-btn" href="{% static 'report-card.pdf' %}" target="_blank">View</a>
+  </div>
+</div>
+{% endblock body %}

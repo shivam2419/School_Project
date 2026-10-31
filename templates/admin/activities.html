@@ -1,62 +1,22 @@
 {% extends "admin/adminbase.html" %}
 {% load static %}
 {% block title %}| Activities{% endblock title %}
-{% block css %}{% static "addactivities.css" %}{% endblock css %}
 
 {% block body %}
-<form action="" method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    <img src="{{top}}" alt="" id="img">
-    <br><br>
-    <input type="file" name="file" id="file" multiple required>
-    <br><br>
-    <input type="submit" value="SUBMIT" id="btn">
-      <!-- Image Previews Will Show Here -->
-    <div id="preview" style="display: flex; gap: 10px; flex-wrap: wrap;"></div>
-    <br><br>
-</form>
-<br><br>
-<div class="content">
-<h1>
-    All Images :
-</h1>
-<div class="area">
-{% for image in images %}
-<div class="card">
-    <img src="{{ image.activity.url }}" alt="{{ image.description }}" class="responsive-img" id="fetched_img">
-    <div class="info">
+{% include "admin/_upload_form.html" %}
+
+<div class="content-area">
+  <div class="page-head"><h1>All Images :</h1></div>
+  <div class="img-grid area">
+    {% for image in images %}
+    <div class="img-card card">
+      <img src="{{ image.activity.url }}" alt="{{ image.description }}" class="responsive-img" id="fetched_img">
+      <div class="info">
         <p>Upload date : {{image.created_at|date:"Y-m-d"}}</p>
-        <a href="{% url 'deleteActivities' image.id %}">Delete</a>
+        <a class="btn btn-danger btn-sm" href="{% url 'deleteActivities' image.id %}"><i class="fa-regular fa-trash-can"></i>Delete</a>
+      </div>
     </div>
+    {% endfor %}
+  </div>
 </div>
-{% endfor %}
-</div>
-</div>
-<script>
-    const fileInput = document.getElementById("file");
-    const previewContainer = document.getElementById("preview");
-
-    fileInput.addEventListener("change", function () {
-        previewContainer.innerHTML = ""; // Clear previous previews
-
-        Array.from(fileInput.files).forEach(file => {
-            if (file.type.startsWith("image/")) {
-                const reader = new FileReader();
-                reader.onload = function (e) {
-                    const img = document.createElement("img");
-                    img.src = e.target.result;
-                    img.style.width = "150px";
-                    img.style.height = "150px";
-                    img.style.objectFit = "cover";
-                    img.style.border = "1px solid #ccc";
-                    img.style.borderRadius = "10px";
-                    img.style.margin = "10px";
-                    previewContainer.appendChild(img);
-                };
-                reader.readAsDataURL(file);
-            }
-        });
-    });
-</script>
-
 {% endblock body %}

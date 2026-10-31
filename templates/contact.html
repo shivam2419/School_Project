@@ -1,38 +1,39 @@
 {% extends "base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>{% block title %}| CONTACT{% endblock title %}</title>
-    {% block meta_description %}Get in touch with Aryabhatta Public School. View contact info, location, and timings.{% endblock %}
-    {% block css%}static/contact.css{% endblock css%}
-  </head>
-  <body>
-    {% block body %}
-    <div class="contact-container">
-      <div class="middle">
-        <div class="left">
-          <h2>Boxes full of STEAM</h2>
-          <p>
-            Aryabhatta Public School asks you to give your information so that we can contact you. Feel free to share — we keep everything private and safe.
-          </p>
-          <form action="" method="POST">
-            {% csrf_token %}
-            <h3>Contact Our Community!</h3>
-            <input type="text" placeholder="First name" name="fname" required />
-            <input type="text" placeholder="Last name" name="lname" required />
-            <input type="email" placeholder="Email" name="email" required />
-            <input type="number" placeholder="Phone number*" name="txt" required />
-            <input type="submit" value="Proceed" />
-          </form>
-        </div>
-      </div>
+{% block title %}| CONTACT{% endblock title %}
+{% block meta_description %}Get in touch with Aryabhatta Public School. View contact info, location, and timings.{% endblock %}
+{% block css %}{% static 'contact.css' %}{% endblock css %}
 
-      <div class="content">
-        <h2>Why <span>Contact?</span></h2>
-        <p>By contacting us, we can solve all your queries. Feel safe — no spam or scam messages will come from our side.</p>
-      </div>
+{% block body %}
+<section class="contact-hero">
+  <div class="wrap contact-in">
+    <div class="contact-text" data-aos="fade-right">
+      <h2>Boxes full of STEAM</h2>
+      <p>
+        Aryabhatta Public School asks you to give your information so that we can contact you. Feel free to share — we keep everything private and safe.
+      </p>
     </div>
-    {% endblock body %}
-  </body>
-</html>
+
+    <form action="" method="POST" class="contact-form" data-aos="fade-left">
+      {% csrf_token %}
+      <h3>Contact Our Community!</h3>
+      <div class="form-row">
+        <input type="text" placeholder="First name" name="fname" required />
+        <input type="text" placeholder="Last name" name="lname" required />
+      </div>
+      <input type="email" placeholder="Email" name="email" required />
+      <input type="number" placeholder="Phone number*" name="txt" required />
+      <input type="submit" value="Proceed" class="btn btn-gold" />
+    </form>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="why-contact card" data-aos="fade-up">
+      <h2>Why <span>Contact?</span></h2>
+      <p>By contacting us, we can solve all your queries. Feel safe — no spam or scam messages will come from our side.</p>
+    </div>
+  </div>
+</section>
+{% endblock body %}

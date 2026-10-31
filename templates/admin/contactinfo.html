@@ -1,11 +1,13 @@
-{% extends "admin/adminbase.html" %} {% load static %} {% block title %}|
-Enquiry Dashboard{% endblock title %} {% block css %}{% static "admin_dashboard.css" %}{% endblock css %} {% block body %}
+{% extends "admin/adminbase.html" %}
+{% load static %}
+{% block title %}| Enquiry Dashboard{% endblock title %}
+
+{% block body %}
 <div class="admin-container">
-  <form action="" method="POST">
-    {% csrf_token %}
-    <h1>ENQUIRIES :</h1>
-    <div class="table-wrapper">
-      <table>
+  <div class="page-head"><h1>ENQUIRIES :</h1></div>
+  <div class="table-wrap">
+    <table>
+      <thead>
         <tr>
           <th>S.No</th>
           <th>Name</th>
@@ -13,21 +15,19 @@ Enquiry Dashboard{% endblock title %} {% block css %}{% static "admin_dashboard.
           <th>Phone number</th>
           <th>Status</th>
         </tr>
+      </thead>
+      <tbody>
         {% for item in contact %}
         <tr>
           <td>{{ forloop.counter }}.</td>
           <td>{{ item.f_name }} {{ item.l_name }}</td>
           <td>{{ item.email }}</td>
           <td>{{ item.pnum }}</td>
-          <td>
-            <button type="submit">
-              <a href="{% url 'deleteContact' item.id %}">Delete</a>
-            </button>
-          </td>
+          <td><a class="btn btn-danger btn-sm" href="{% url 'deleteContact' item.id %}"><i class="fa-regular fa-trash-can"></i>Delete</a></td>
         </tr>
         {% endfor %}
-      </table>
-    </div>
-  </form>
+      </tbody>
+    </table>
+  </div>
 </div>
 {% endblock body %}

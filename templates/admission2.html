@@ -1,516 +1,186 @@
+{% extends "base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'admission2.css' %}">
-    <title>ARYABHATTA EDU | ADMISSION-FORM</title>
-  </head>
-  <body>
-  <div class="page-content">
-    <br />
+{% block css %}{% static 'admission2.css' %}{% endblock css %}
+{% block title %}| ADMISSION-FORM{% endblock title %}
 
-    <p align="center" id="head">
-      <img
-        src="{% static 'logo.jpg'%}"
-        alt="logo"
-        class="logo-default"
-        height="150"
-        width="150"
-      />
+{% block body %}
+<section class="page-banner reg-banner">
+  <img src="{% static 'logo.jpg' %}" alt="logo" class="reg-logo" />
+  <p>
+    <b>Kher Nawada, Gadi Jahan Singh Road, Shamshabad, Agra-283125</b><br />
+    <b>Phone No: 7017217471, 9027279413 </b><br />
+    <b>Email Id: aryabhattapublicedu@gmail.com</b>
+  </p>
+  <h1 id="regis">REGISTRATION FORM (Session {{next_year}}-{{over_year}})</h1>
+</section>
 
-      <br />
-
-      <br />
-
-      <b>Kher Nawada, Gadi Jahan Singh Road, Shamshabad, Agra-283125</b>
-
-      <br />
-
-      <b>Phone No: 7017217471, 9027279413 </b>
-
-      <br />
-
-      <b>Email Id: aryabhattapublicedu@gmail.com</b>
-
-      <br />
-    </p>
-    <h2 align="center"><b id='regis'>REGISTRATION FORM (Session {{next_year}}-{{over_year}})</b></h2>
-
-    <p></p>
-
-    <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
-
-    <!-- /.modal -->
-
-    <!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
-
-    <!-- BEGIN PAGE HEADER-->
-
-    <!-- BEGIN PAGE HEAD -->
-
-    <div class="page-head">
-      <!-- BEGIN PAGE TITLE -->
-
-      <div class="page-title">
-        <p>
-          <b
-            >Parents are requested to note:
-          </b>
-        </p>
-        <ul>
-          <li>
-            <b
-              >This is not an Admission Form. Submission of this form does not
-              guarantee admission to School.</b
-            >
-          </li>
-          <li>
-            <b
-              >Kindly view the school fee structure by clicking on the link (<a
-                href="{% url 'service' %}"
-                target="_blank"
-                style="color: blue; text-decoration: underline"
-                >Fee Structure for the session 2024-25</a
-              >)
-              or visiting the school website before submitting the
-              application.</b
-            >
-          </li>
-
-          <li>
-            <b
-              >Supervision facility whereby the Parent(s)/guardian picks &amp;
-              drops the child to school is available only if the residence is
-              within 0.5 Km radius of the school.</b
-            >
-          </li>
-
-          <li><b>Please fill the details in BLOCK LETTERS</b></li>
-        </ul>
-
-        <small></small>
-        <p></p>
-      </div>
-
-      <!-- END PAGE TITLE -->
-
-      <!-- BEGIN PAGE TOOLBAR -->
-
-      <!-- END PAGE TOOLBAR -->
+<section class="section">
+  <div class="wrap reg">
+    <div class="reg-note card" data-aos="fade-up">
+      <p class="reg-note-title"><i class="fa-solid fa-circle-info"></i>Parents are requested to note:</p>
+      <ul>
+        <li>This is not an Admission Form. Submission of this form does not guarantee admission to School.</li>
+        <li>
+          Kindly view the school fee structure by clicking on the link (<a
+            href="{% url 'service' %}"
+            target="_blank"
+            >Fee Structure for the session 2024-25</a
+          >) or visiting the school website before submitting the application.
+        </li>
+        <li>
+          Supervision facility whereby the Parent(s)/guardian picks &amp;
+          drops the child to school is available only if the residence is
+          within 0.5 Km radius of the school.
+        </li>
+        <li>Please fill the details in BLOCK LETTERS</li>
+      </ul>
     </div>
 
-    <!-- END PAGE HEAD -->
+    <form
+      method="POST"
+      name="frmStudentReg"
+      id="frmStudentReg"
+      action="reg_submit"
+      class="form-horizontal"
+      enctype="multipart/form-data"
+    >
+      {% csrf_token %}
+      <div class="reg-card card">
+        <div class="reg-card-head"><i class="fa-solid fa-gift"></i>Details</div>
+        <div class="reg-fields">
+          <div class="form-group">
+            <label for="txtFieldValue_0">Student Name*</label>
+            <input required type="text" class="form-control" name="txtFieldValue_0" id="txtFieldValue_0" placeholder="Candidate First Name" onkeyup="upperCaseF(this)" />
+          </div>
 
-    <!-- END PAGE HEADER-->
+          <div class="form-group">
+            <label for="txtFieldValue_1">Father's Name</label>
+            <input required type="text" class="form-control" name="txtFieldValue_1" id="txtFieldValue_1" placeholder="Candidate Father Name" onkeyup="upperCaseF(this)" />
+          </div>
 
-    <!-- BEGIN PAGE CONTENT-->
+          <div class="form-group">
+            <label for="txtFieldValue_2">Mother's Name</label>
+            <input required type="text" class="form-control" name="txtFieldValue_2" id="txtFieldValue_2" placeholder="Candidate Mother Name" onkeyup="upperCaseF(this)" />
+          </div>
 
-    <div class="row">
-      <div class="col-md-12">
-        <div
-          class="tabbable tabbable-custom tabbable-noborder tabbable-reversed"
-        >
-          <form
-            method="POST"
-            name="frmStudentReg"
-            id="frmStudentReg"
-            action="reg_submit"
-            class="form-horizontal"
-            enctype="multipart/form-data"
-          >
-            <div class="tab-content">
-              <div class="tab-pane active" id="tab_0">
-                <div class="portlet box green">
-                  <div class="portlet-title">
-                    <div class="caption">
-                      <i class="fa fa-gift"></i>Details
-                    </div>
+          <div class="form-group">
+            <label for="txtFieldValue_3">DOB*</label>
+            <input required type="date" name="txtFieldValue_3" id="txtFieldValue_3" class="form-control" />
+          </div>
 
-                    {% csrf_token %}
-                    <div class="form-body">
-                      <h3 class="form-section"></h3>
+          <div class="form-group">
+            <label for="txtFieldValue_4">Phone number*</label>
+            <input required type="number" class="form-control" name="txtFieldValue_4" id="txtFieldValue_4" placeholder="Phone Number*" />
+          </div>
 
-                      <div class="row">
-                        <div class="col-md-3">
-                          <div class="form-group">
-                            <label class="control-label col-md-3">
-                              Student Name*</label
-                            >
+          <div class="form-group">
+            <label for="txtFieldValue_5">Email Id*</label>
+            <input required type="Email" class="form-control" name="txtFieldValue_5" id="txtFieldValue_5" placeholder="Email Id*" />
+          </div>
 
-                            <div class="col-md-9">
-                              <input required
-                                type="text"
-                                class="form-control"
-                                name="txtFieldValue_0"
-                                id="txtFieldValue_0"
-                                onchange="ValidateSingleInput(this);"
-                                placeholder="Candidate First Name"
-                                onkeyup="upperCaseF(this)"
-                              />
-                            </div>
-                          </div>
-                        </div>
+          <div class="form-group">
+            <label for="txtFieldValue_6">Gender*</label>
+            <select name="txtFieldValue_6" id="txtFieldValue_6" class="form-control">
+              <option value="">Select One</option>
+              <option value="F">Female</option>
+              <option value="M">Male</option>
+            </select>
+          </div>
 
-                        <div class="col-md-6">
-                          <div class="form-group">
-                            <label class="control-label col-md-3">
-                              Father's Name</label
-                            >
+          <div class="form-group">
+            <label for="txtFieldValue_7">Class Applied For*</label>
+            <select name="txtFieldValue_7" id="txtFieldValue_7" class="form-control">
+              <option value="">Select One</option>
+              <option value="Balvatika">Balvatika</option>
+              <option value="Nursery">Nursery</option>
+              <option value="Prep">Prep</option>
+              <option value="1">I</option>
+              <option value="2">II</option>
+              <option value="3">III</option>
+              <option value="4">IV</option>
+              <option value="5">V</option>
+              <option value="6">VI</option>
+              <option value="7">VII</option>
+              <option value="8">VIII</option>
+              <option value="9">IX</option>
+            </select>
+          </div>
 
-                            <div class="col-md-9">
-                              <input required
-                                type="text"
-                                class="form-control"
-                                name="txtFieldValue_1"
-                                id="txtFieldValue_1"
-                                onchange="ValidateSingleInput(this);"
-                                placeholder="Candidate Father Name"
-                                onkeyup="upperCaseF(this)"
-                              />
-                            </div>
-                          </div>
-                        </div>
+          <div class="form-group">
+            <label for="txtFieldValue_8">Last School Attended</label>
+            <input required type="text" class="form-control" name="txtFieldValue_8" id="txtFieldValue_8" placeholder="School where candidate last studied" onkeyup="upperCaseF(this)" />
+          </div>
 
-                        <div class="col-md-6">
-                          <div class="form-group">
-                            <label class="control-label col-md-3">
-                              Mother's Name</label
-                            >
+          <div class="form-group">
+            <label for="txtFieldValue_9">Residential Address*</label>
+            <input required type="text" class="form-control" name="txtFieldValue_9" id="txtFieldValue_9" placeholder="Local residence address for which residence proof can be provided" onkeyup="upperCaseF(this)" />
+          </div>
 
-                            <div class="col-md-9">
-
-                              <input required
-                                type="text"
-                                class="form-control"
-                                name="txtFieldValue_2"
-                                id="txtFieldValue_2"
-                                onchange="ValidateSingleInput(this);"
-                                placeholder="Candidate Mother Name"
-                                onkeyup="upperCaseF(this)"
-                              />
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="col-md-6">
-                          <div class="form-group">
-                            <label class="control-label col-md-3"> DOB*</label>
-
-                            <div class="col-md-9">
-
-                                <input required
-                                  type="date"
-                                  name="txtFieldValue_3"
-                                  id="txtFieldValue_3"
-                                  class="form-control"
-                                />
-
-                        
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="col-md-6">
-                          <div class="form-group">
-                            <label class="control-label col-md-3">
-                              Phone number*</label
-                            >
-
-                            <div class="col-md-9">
-
-                              <input required
-                                type="number"
-                                class="form-control"
-                                name="txtFieldValue_4"
-                                id="txtFieldValue_4"
-                                onchange="ValidateSingleInput(this);"
-                                placeholder="Phone Number*"
-                                onkeyup="upperCaseF(this)"
-                              />
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="col-md-6">
-                          <div class="form-group">
-                            <label class="control-label col-md-3">
-                              Email Id*</label
-                            >
-
-                            <div class="col-md-9">
-
-                              <input required
-                                type="Email"
-                                class="form-control"
-                                name="txtFieldValue_5"
-                                id="txtFieldValue_5"
-                                placeholder="Email Id*"
-                              />
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="col-md-6">
-                          <div class="form-group">
-                            <label class="control-label col-md-3">
-                              Gender*</label
-                            >
-
-                            <div class="col-md-9">
-
-                              <select
-                                name="txtFieldValue_6"
-                                id="txtFieldValue_6"
-                                class="form-control"
-                              >
-                                <option value="">Select One</option>
-
-                                <option value="F">Female</option>
-
-                                <option value="M">Male</option>
-                              </select>
-                            </div>
-                          </div>
-                        </div>
-
-
-                        <div class="col-md-6">
-                          <div class="form-group">
-                            <label class="control-label col-md-3">
-                              Class Applied For*</label
-                            >
-
-                            <div class="col-md-9">
-                              <select
-                                name="txtFieldValue_7"
-                                id="txtFieldValue_7"
-                                class="form-control"
-                              >
-                                <option value="">Select One</option>
-
-                                <option value="Balvatika">Balvatika</option>
-
-                                <option value="Nursery">Nursery</option>
-
-                                <option value="Prep">Prep</option>
-
-                                <option value="1">I</option>
-
-                                <option value="2">II</option>
-
-                                <option value="3">III</option>
-
-                                <option value="4">IV</option>
-
-                                <option value="5">V</option>
-
-                                <option value="6">VI</option>
-
-                                <option value="7">VII</option>
-
-                                <option value="8">VIII</option>
-
-                                <option value="9">IX</option>
-                              </select>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="col-md-6">
-                          <div class="form-group">
-                            <label class="control-label col-md-3">
-                              Last School Attended</label
-                            >
-
-                            <div class="col-md-9">
-                      
-                              <input required
-                                type="text"
-                                class="form-control"
-                                name="txtFieldValue_8"
-                                id="txtFieldValue_8"
-                                onchange="ValidateSingleInput(this);"
-                                placeholder="School where candidate last studied"
-                                onkeyup="upperCaseF(this)"
-                              />
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="col-md-6">
-                          <div class="form-group">
-                            <label class="control-label col-md-3">
-                              Residential Address*</label
-                            >
-
-                            <div class="col-md-9">
-
-                              <input required
-                                type="text"
-                                class="form-control"
-                                name="txtFieldValue_9"
-                                id="txtFieldValue_9"
-                                onchange="ValidateSingleInput(this);"
-                                placeholder="Local residence address for which residence proof can be provided"
-                                onkeyup="upperCaseF(this)"
-                              />
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="col-md-6">
-                          <div class="form-group">
-                            <label class="control-label col-md-3">
-                              Transport Required*</label
-                            >
-
-                            <div class="col-md-9">
-                         
-                            <div class="select">
-                            
-                              <select
-                                name="txtFieldValue_10"
-                                id="txtFieldValue_10"
-                                class="form-control"
-                              >
-                                <option value="">Select One</option>
-
-                                <option value="Yes">Yes</option>
-
-                                <option value="No">No</option>
-                               
-                              </select>
-                              <br>
-                              <p>
-                               (Supervision facility is available only if the
-                              residence is within 0.5 km radius of the school)</p>
-                              <br><br>
-                            </div>
-                          </div>
-                        </div>
-                        </div>
-                        
-                      </div>
-                    </div>
-
-                    <!-- END FORM-->
-                  </div>
-                </div>
-              </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="tab-pane" id="tab_note">
-                <div class="portlet box green">
-                  <div class="portlet-title">
-                    <div class="caption">
-                      <i class="fa fa-gift"></i>Declaration
-                    </div>
-                  </div>
-
-                  <div class="portlet-body form">
-                    <div class="form-body">
-                      <p><font face="Cambria" size="3"> </font></p>
-                      <ul>
-                        <font face="Cambria" size="3">
-                          <li>
-                            1. I understand that rendering false / incorrect or
-                            misleading information at the time of admission or
-                            discovery of the same at any later stage shall
-                            disqualify the applicant for admission to this
-                            school and also that an incomplete form will be
-                            rejected without assigning any reason.
-                          </li>
-
-                          <li>
-                            2. I have carefully read the rules, regulations and
-                            procedures laid down by the school and being
-                            desirous of having my child / ward educated in Aryabhatta Public school, Agra .I hereby agree to abide by
-                            them in all respects. I understand that the decision
-                            of the management of the School shall be final and
-                            binding on me for which I will not file any
-                            objection / case in any court of law anywhere in
-                            India.
-                          </li>
-
-                          <li>
-                            3. I hereby certify that my ward and I shall follow all
-                            the rules, regulations enforced from time to
-                            time&nbsp; by the school management . We further
-                            undertake that in&nbsp; order to maintain the
-                            sanctity of the teacher taught relationship, we
-                            shall not indulge in any form of unwarranted
-                            protests.
-                          </li>
-
-                          <li>
-                            4. Submission of this form is a confirmation of the
-                            above declarations.
-                          </li>
-                        </font>
-                      </ul>
-                      <font face="Cambria" size="3">
-                        &nbsp;
-                        Date : {{date}}
-                      </font>
-                      <p></p>
-
-                      <div class="form-actions">
-                        <div class="row">
-                          <div class="col-md-6">
-                            <div class="row">
-                              <input required
-                                type="hidden"
-                                name="totalrec"
-                                id="totalrec"
-                                value="86"
-                              />
-
-                              <div class="col-md-offset-12 col-md-12">
-                                <button
-                                  type="submit"
-                                  onclick="ValidateSubmit();"
-                                  class="btn red l-button"
-                                >
-                                </b>
-                                  SUBMIT
-                                <b>
-                                </button>
-
-                                <!--<button type="button" class="btn default">
-
-																		Cancel</button>-->
-                              </div>
-                            </div>
-                          </div>
-
-                          <div class="col-md-6"></div>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- BEGIN FORM-->
-
-                    <!-- END FORM-->
-                  </div>
-                </div>
-              </div>
-            </div>
-          </form>
+          <div class="form-group">
+            <label for="txtFieldValue_10">Transport Required*</label>
+            <select name="txtFieldValue_10" id="txtFieldValue_10" class="form-control">
+              <option value="">Select One</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+            <p class="hint">(Supervision facility is available only if the residence is within 0.5 km radius of the school)</p>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- END PAGE CONTENT-->
+      <div class="reg-card card">
+        <div class="reg-card-head"><i class="fa-solid fa-gift"></i>Declaration</div>
+        <div class="reg-decl">
+          <ul>
+            <li>
+              1. I understand that rendering false / incorrect or
+              misleading information at the time of admission or
+              discovery of the same at any later stage shall
+              disqualify the applicant for admission to this
+              school and also that an incomplete form will be
+              rejected without assigning any reason.
+            </li>
+            <li>
+              2. I have carefully read the rules, regulations and
+              procedures laid down by the school and being
+              desirous of having my child / ward educated in Aryabhatta Public school, Agra .I hereby agree to abide by
+              them in all respects. I understand that the decision
+              of the management of the School shall be final and
+              binding on me for which I will not file any
+              objection / case in any court of law anywhere in
+              India.
+            </li>
+            <li>
+              3. I hereby certify that my ward and I shall follow all
+              the rules, regulations enforced from time to
+              time&nbsp; by the school management . We further
+              undertake that in&nbsp; order to maintain the
+              sanctity of the teacher taught relationship, we
+              shall not indulge in any form of unwarranted
+              protests.
+            </li>
+            <li>
+              4. Submission of this form is a confirmation of the
+              above declarations.
+            </li>
+          </ul>
+          <p class="reg-date">Date : {{date}}</p>
+
+          <input type="hidden" name="totalrec" id="totalrec" value="86" />
+          <button type="submit" class="btn btn-gold l-button">SUBMIT</button>
+        </div>
+      </div>
+    </form>
   </div>
-  <script>
-    function scrollToSection(id) {
-        var element = document.getElementById(id);
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-</script>
+</section>
 
-  </body>
-</html>
+<script>
+  function upperCaseF(el) {
+    el.value = el.value.toUpperCase();
+  }
+  function scrollToSection(id) {
+    var element = document.getElementById(id);
+    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+</script>
+{% endblock body %}

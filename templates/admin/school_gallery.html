@@ -1,40 +1,42 @@
 {% extends "admin/adminbase.html" %}
 {% load static %}
 {% block title %}| Add Images{% endblock title %}
-{% block css %}{% static "addschoolgallery.css" %}{% endblock css %}
 
 {% block body %}
-    <div class="container">
-        <form action="" method="POST">
-        <div class="card-1">
-            <div class="left">
-                <img src="{% static 'background-image.png' %}" alt="">
-                <h1>EVENTS</h1>
-                <p>Aryabhatt Public school <b>Events</b> images, Add files of <b>Events</b></p>
-                <a href="{% url 'addInaugration' %}">ADD MORE</a>
-            </div>
-            <div class="right">
-                <img src="{% static 'background-image.png' %}" alt="">
-                <h1>ASSEMBLY</h1>
-                <p>Aryabhatt Public school <b>Assesmbly</b> images, Add files of <b>Assesmbly</b></p>
-                <a href="{% url 'addAssembly' %}">ADD MORE</a>
-            </div>
-        </div>
-        <div class="card-1">
-            <div class="left">
-                <img src="{% static 'background-image.png' %}" alt="">
-                <h1>FUNCTION</h1>
-                <p>Aryabhatt Public school <b>Functions</b> images, Add files of <b>Functions</b></p>
-                <a href="{% url 'addFunction' %}">ADD MORE</a>
-            </div>
-            <div class="right">
-                <img src="{% static 'background-image.png' %}" alt="">
-                <h1>INFRASTRUCTURE</h1>
-                <p>Aryabhatt Public school <b>Infrastructure</b> images, Add files of <b>Infrastructure</b></p>
-                <a href="{% url 'addPt' %}">ADD MORE</a>
-            </div>
-        </div>
-    </form>
+<div class="container">
+  <div class="gal-choose">
+    <div class="gal-card">
+      <div class="thumb" style="--thumb: url('{% static 'background-image.png' %}')"><i class="fa-solid fa-champagne-glasses"></i></div>
+      <div class="body">
+        <h2>EVENTS</h2>
+        <p>Aryabhatt Public school <b>Events</b> images, Add files of <b>Events</b></p>
+        <a class="btn btn-primary btn-sm" href="{% url 'addInaugration' %}"><i class="fa-solid fa-plus"></i>ADD MORE</a>
+      </div>
     </div>
-
-    {% endblock body %}
+    <div class="gal-card">
+      <div class="thumb" style="--thumb: url('{% static 'background-image.png' %}')"><i class="fa-solid fa-people-line"></i></div>
+      <div class="body">
+        <h2>ASSEMBLY</h2>
+        <p>Aryabhatt Public school <b>Assesmbly</b> images, Add files of <b>Assesmbly</b></p>
+        <a class="btn btn-primary btn-sm" href="{% url 'addAssembly' %}"><i class="fa-solid fa-plus"></i>ADD MORE</a>
+      </div>
+    </div>
+    <div class="gal-card">
+      <div class="thumb" style="--thumb: url('{% static 'background-image.png' %}')"><i class="fa-solid fa-music"></i></div>
+      <div class="body">
+        <h2>FUNCTION</h2>
+        <p>Aryabhatt Public school <b>Functions</b> images, Add files of <b>Functions</b></p>
+        <a class="btn btn-primary btn-sm" href="{% url 'addFunction' %}"><i class="fa-solid fa-plus"></i>ADD MORE</a>
+      </div>
+    </div>
+    <div class="gal-card">
+      <div class="thumb" style="--thumb: url('{% static 'background-image.png' %}')"><i class="fa-solid fa-school"></i></div>
+      <div class="body">
+        <h2>INFRASTRUCTURE</h2>
+        <p>Aryabhatt Public school <b>Infrastructure</b> images, Add files of <b>Infrastructure</b></p>
+        <a class="btn btn-primary btn-sm" href="{% url 'addPt' %}"><i class="fa-solid fa-plus"></i>ADD MORE</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock body %}

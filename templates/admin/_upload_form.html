@@ -1,0 +1,39 @@
+<form action="" method="POST" enctype="multipart/form-data" class="panel">
+  {% csrf_token %}
+  <div class="upload-row">
+    {% if top %}
+    <img src="{{top}}" alt="" id="img" class="latest">
+    {% else %}
+    <div class="latest-empty"><i class="fa-regular fa-image"></i></div>
+    {% endif %}
+    <div class="upload-box">
+      <label class="drop" for="file">
+        <i class="fa-solid fa-cloud-arrow-up"></i>
+        <b>Choose images to upload</b>
+        <span>You can select multiple files</span>
+        <input type="file" name="file" id="file" multiple required>
+      </label>
+    </div>
+  </div>
+  <div id="preview" class="preview"></div>
+  <input type="submit" value="SUBMIT" id="btn" class="btn btn-gold upload-submit">
+</form>
+<script>
+  (function () {
+    var fileInput = document.getElementById("file");
+    var previewContainer = document.getElementById("preview");
+    fileInput.addEventListener("change", function () {
+      previewContainer.innerHTML = "";
+      Array.from(fileInput.files).forEach(function (file) {
+        if (!file.type.startsWith("image/")) return;
+        var reader = new FileReader();
+        reader.onload = function (e) {
+          var img = document.createElement("img");
+          img.src = e.target.result;
+          previewContainer.appendChild(img);
+        };
+        reader.readAsDataURL(file);
+      });
+    });
+  })();
+</script>
